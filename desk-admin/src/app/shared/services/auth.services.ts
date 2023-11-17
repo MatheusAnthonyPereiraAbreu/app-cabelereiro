@@ -1,12 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
-import { UserServices } from '../services/user.services';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument,
-} from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { getFirestore, updateDoc, doc as docs, query, collection, where, getDocs} from 'firebase/firestore';
+import { UserServices } from './user.services';
 @Injectable({
   providedIn: 'root',
 })
@@ -85,6 +83,24 @@ export class AuthService {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
   }
+  // Sign in with Google
+  GoogleAuth() {
+    return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
+      this.router.navigate(['dashboard']);
+    });
+  }
+  // Auth logic to run auth providers
+  AuthLogin(provider: any) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((result) => {
+        this.router.navigate(['dashboard']);
+        this.SetUserData(result.user);
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
+  }
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
@@ -108,6 +124,21 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
+    });
+  }
+  isAdmin() {
+    const db = getFirestore();
+    let admin: boolean = false;
+    let user = JSON.parse(localStorage.getItem('user')!);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    getDocs(q).then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        admin = doc.data()['admUser'];
+      });
+
+      user.admUser = admin;
+      localStorage.setItem("user", JSON.stringify(user));
     });
   }
 }

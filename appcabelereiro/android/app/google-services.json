@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "186637229156",
+    "project_id": "teste-3ac0d",
+    "storage_bucket": "teste-3ac0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186637229156:android:bd600cc73a86677f219371",
+        "android_client_info": {
+          "package_name": "com.example.appcabelereiro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo6U2-ZWDJIuarkSXqrZavKuHjVegveik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

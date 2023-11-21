@@ -50,7 +50,7 @@ class SelecionarProfissional extends StatelessWidget {
 
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/core/models/profissional.dart';
-import 'package:appcabelereiro/core/services/firebase.dart'; 
+import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
 import 'package:appcabelereiro/pages/agendamento.dart';
 
 class ProfissionalPage extends StatefulWidget {
@@ -91,7 +91,7 @@ class _ProfissionalPageState extends State<ProfissionalPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AgendamentoPage(profissional: snapshot.data![index].nome),
+                        builder: (context) => AgendamentoPage(profissional: snapshot.data![index].nome, servico: snapshot.data![index].funcao),
                       ),
                     );
                   },

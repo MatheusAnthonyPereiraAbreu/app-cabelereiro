@@ -13,8 +13,8 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml:6:5-66
-15-->/home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml:6:22-64
+15-->/home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml:6:5-66
+15-->/home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml:6:22-64
 16    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 17    <!-- <uses-sdk android:minSdkVersion="14" /> -->
 18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -88,25 +88,25 @@
 68            android:value="2" />
 69
 70        <service
-70-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+70-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
 71            android:name="com.google.firebase.components.ComponentDiscoveryService"
-71-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
+71-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
 72            android:directBootAware="true"
 72-->[com.google.firebase:firebase-common:20.4.2] /home/victor/.gradle/caches/transforms-3/ebdab480cbe7a30e9df4a8c214f0d10d/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:32:13-43
 73            android:exported="false" >
 73-->[com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:16:13-37
 74            <meta-data
-74-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+74-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 75                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-75-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
+75-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
 76                android:value="com.google.firebase.components.ComponentRegistrar" />
-76-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+76-->[:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 77            <meta-data
-77-->[:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+77-->[:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 78                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-78-->[:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+78-->[:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
 79                android:value="com.google.firebase.components.ComponentRegistrar" />
-79-->[:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+79-->[:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 80            <meta-data
 80-->[com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:17:13-19:85
 81                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"

@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 application
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:2:5-32:19
-MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
-MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
-MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
-MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:2:5-32:19
+MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
+MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
+MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
+MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:13:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:13:5-24:19
 MERGED from [com.google.firebase:firebase-analytics:21.5.0] /home/victor/.gradle/caches/transforms-3/ed8225fcd71265a7bdfbab8481dacc28/transformed/jetified-firebase-analytics-21.5.0/AndroidManifest.xml:7:5-20
@@ -52,15 +52,15 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/victo
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] /home/victor/.gradle/caches/transforms-3/6c7126e5e59498e3e79fd4420a4c14ae/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 	android:name
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
-MERGED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
-MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
-MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
+ADDED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
+MERGED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
+MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
+MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-analytics:21.5.0] /home/victor/.gradle/caches/transforms-3/ed8225fcd71265a7bdfbab8481dacc28/transformed/jetified-firebase-analytics-21.5.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/9a4109735b5047f6bcc532a04f3a2767/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:17:1-43:12
@@ -110,31 +110,31 @@ MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/victor/.gr
 MERGED from [androidx.multidex:multidex:2.0.1] /home/victor/.gradle/caches/transforms-3/46f45fe77236b8eb455bf0b50b88ab7f/transformed/multidex-2.0.1/AndroidManifest.xml:17:1-22:12
 MERGED from [io.grpc:grpc-android:1.52.1] /home/victor/.gradle/caches/transforms-3/d13ab7a76f54fb6d429c8528822d454a/transformed/jetified-grpc-android-1.52.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/victor/.gradle/caches/transforms-3/295593a08db9780d8ff7b08303d74312/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:2:1-11:12
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 	package
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-sdk
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml
-MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml
+MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:6:5-44
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:6:5-44
 MERGED from [com.google.firebase:firebase-analytics:21.5.0] /home/victor/.gradle/caches/transforms-3/ed8225fcd71265a7bdfbab8481dacc28/transformed/jetified-firebase-analytics-21.5.0/AndroidManifest.xml:5:5-44
@@ -233,16 +233,16 @@ MERGED from [io.grpc:grpc-android:1.52.1] /home/victor/.gradle/caches/transforms
 MERGED from [io.grpc:grpc-android:1.52.1] /home/victor/.gradle/caches/transforms-3/d13ab7a76f54fb6d429c8528822d454a/transformed/jetified-grpc-android-1.52.1/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/victor/.gradle/caches/transforms-3/295593a08db9780d8ff7b08303d74312/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/victor/.gradle/caches/transforms-3/295593a08db9780d8ff7b08303d74312/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml
-INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml:6:5-66
+ADDED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml:6:5-66
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:11:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/9a4109735b5047f6bcc532a04f3a2767/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:22:5-67
@@ -256,11 +256,11 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /home
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /home/victor/.gradle/caches/transforms-3/3531028b633196ebf606e716f5292db2/transformed/jetified-play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /home/victor/.gradle/caches/transforms-3/3531028b633196ebf606e716f5292db2/transformed/jetified-play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from /home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/debug/AndroidManifest.xml:6:22-64
+		ADDED from /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/debug/AndroidManifest.xml:6:22-64
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
-MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
-MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+MERGED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:14:9-23:19
 MERGED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:14:9-23:19
 MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/9a4109735b5047f6bcc532a04f3a2767/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:34:9-40:19
@@ -278,19 +278,19 @@ MERGED from [com.google.firebase:firebase-common:20.4.2] /home/victor/.gradle/ca
 	android:directBootAware
 		ADDED from [com.google.firebase:firebase-common:20.4.2] /home/victor/.gradle/caches/transforms-3/ebdab480cbe7a30e9df4a8c214f0d10d/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:32:13-43
 	android:name
-		ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
+		ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
-ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 	android:value
-		ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+		ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 	android:name
-		ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
+		ADDED from [:cloud_firestore] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
-ADDED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+ADDED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 	android:value
-		ADDED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+		ADDED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 	android:name
-		ADDED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+		ADDED from [:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/e1b316a516c2b326c7aac9edda65ea8b/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:10:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/9a4109735b5047f6bcc532a04f3a2767/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:23:5-79

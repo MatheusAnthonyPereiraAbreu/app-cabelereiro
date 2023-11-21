@@ -1,72 +1,10 @@
-/*import 'package:flutter/material.dart';
-import 'package:pomodoro/core/models/user.dart';
-import 'package:pomodoro/core/services/auth/auth_firebase_service.dart';
-import 'package:intl/intl.dart';
-
-class AgendarHorario extends StatefulWidget {
-  final Profissional profissional;
-
-  AgendarHorario({required this.profissional});
-
-  @override
-  _AgendarHorarioState createState() => _AgendarHorarioState();
-}
-
-class _AgendarHorarioState extends State<AgendarHorario> {
-  DateTime dataSelecionada = DateTime.now();
-  List<String> horariosIndisponiveis = [];
-  final FirebaseService firebaseService = FirebaseService();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Agendar Horário'),
-      ),
-      body: Column(
-        children: [
-          ListTile(
-            title: Text('Data: ${DateFormat('dd/MM/yyyy').format(dataSelecionada)}'),
-            trailing: Icon(Icons.calendar_today),
-            onTap: () async {
-              DateTime? data = await showDatePicker(
-                context: context,
-                initialDate: dataSelecionada,
-                firstDate: DateTime.now(),
-                lastDate: DateTime.now().add(Duration(days: 365)),
-              );
-
-              if (data != null) {
-                setState(() {
-                  dataSelecionada = data;
-                  // Atualize a lista de horários indisponíveis
-                  atualizarHorariosIndisponiveis();
-                });
-              }
-            },
-          ),
-          // Lista de horários vai aqui
-        ],
-      ),
-    );
-  }
-
-  void atualizarHorariosIndisponiveis() {
-    // Busque os horários indisponíveis do Firebase
-    firebaseService.getProfissional(widget.profissional.nome).then((profissional) {
-      setState(() {
-        horariosIndisponiveis = profissional.datasIndisponiveis.where((dataHorario) => dataHorario.startsWith(DateFormat('yyyy-MM-dd').format(dataSelecionada))).toList();
-      });
-    });
-  }
-}
-*/
-
 import 'package:flutter/material.dart';
-import 'package:appcabelereiro/core/services/firebase.dart'; 
-
+import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
+import 'package:appcabelereiro/core/models/agendamento_class.dart';
 class AgendamentoPage extends StatefulWidget {
   final String profissional;
-  AgendamentoPage({Key? key, required this.profissional}) : super(key: key);
+  final String servico;
+  AgendamentoPage({Key? key, required this.profissional, required this.servico}) : super(key: key);
 
   @override
   _AgendamentoPageState createState() => _AgendamentoPageState();
@@ -139,6 +77,13 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
 
   void _agendar() {
     if (_horarioSelecionado != null) {
+      Agendamento agendamento = Agendamento(
+        data: _selectedDate,
+        horario: _horarioSelecionado!,
+        nomeCliente: _nomeCliente,
+        servico: widget.servico,
+        cabelereiro: widget.profissional,
+      );
       _firebaseService.agendarHorario(widget.profissional, _selectedDate, _horarioSelecionado!);
     }
   }

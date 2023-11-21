@@ -4,20 +4,22 @@
             "outputFile": "com.example.appcabelereiro.app-mergeDebugResources-18:/values/values.xml",
             "map": [
                 {
-                    "source": "/home/victor/Documentos/Asimov/Flutter/appcabelereiro/build/app/generated/res/google-services/debug/values/values.xml",
+                    "source": "/home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/android/app/src/main/res/values/styles.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,137,241,350,470,565",
-                        "endColumns": "81,103,108,119,94,71",
-                        "endOffsets": "132,236,345,465,560,632"
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
                     },
                     "to": {
-                        "startLines": "120,121,122,123,124,125",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "8556,8638,8742,8851,8971,9066",
-                        "endColumns": "81,103,108,119,94,71",
-                        "endOffsets": "8633,8737,8846,8966,9061,9133"
+                        "startLines": "127,131",
+                        "startColumns": "4,4",
+                        "startOffsets": "9209,9390",
+                        "endLines": "130,133",
+                        "endColumns": "12,12",
+                        "endOffsets": "9385,9554"
                     }
                 },
                 {
@@ -112,22 +114,20 @@
                     }
                 },
                 {
-                    "source": "/home/victor/Documentos/Asimov/Flutter/appcabelereiro/android/app/src/main/res/values/styles.xml",
+                    "source": "/home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/app/generated/res/google-services/debug/values/values.xml",
                     "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,137,241,350,470,565",
+                        "endColumns": "81,103,108,119,94,71",
+                        "endOffsets": "132,236,345,465,560,632"
                     },
                     "to": {
-                        "startLines": "127,131",
-                        "startColumns": "4,4",
-                        "startOffsets": "9209,9390",
-                        "endLines": "130,133",
-                        "endColumns": "12,12",
-                        "endOffsets": "9385,9554"
+                        "startLines": "120,121,122,123,124,125",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "8556,8638,8742,8851,8971,9066",
+                        "endColumns": "81,103,108,119,94,71",
+                        "endOffsets": "8633,8737,8846,8966,9061,9133"
                     }
                 }
             ]

@@ -18,7 +18,7 @@ export class UnloggedGuard {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
     if(this.authService.isLoggedIn !== true){
-      this.router.navigate(['home']);
+      this.router.navigate(['sign-in']);
       return false;
     }
     return true;

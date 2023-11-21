@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { AuthService } from '../services/auth.services';
-import { UserServices } from '../services/user.services';
+import { AdmUser } from '../services/user.services';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdmGuard {
+  // AdmUser: any;
   constructor(
     private authService: AuthService,
-    private userService: UserServices,
+    private AdmUser: AdmUser,
     private router: Router,
   ) { }
 
@@ -24,7 +25,7 @@ export class AdmGuard {
     let userDB: any;
     let user = JSON.parse(localStorage.getItem("user")!);
 
-    return this.userService.getUser(user.uid).pipe(
+    return this.AdmUser.getUser(user.uid).pipe(
       map(user => {
         userDB = user.data();
 

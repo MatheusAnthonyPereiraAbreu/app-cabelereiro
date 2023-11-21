@@ -7,7 +7,7 @@ export interface UserServices {
     emailVerified: boolean;
 
 }
-export class UserServices{
+export class AdmUser{
     constructor(
         private firestore: AngularFirestore,
     ){ }

@@ -15,6 +15,11 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { AddAgendamentoComponent } from './components/crud-agendamento/add-agendamento/add-agendamento.component';
+import { EditAgendamentoComponent } from './components/crud-agendamento/edit-agendamento/edit-agendamento.component';
+import { AgendamentoListComponent } from './components/crud-agendamento/agendamento-list/agendamento-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    AddAgendamentoComponent,
+    EditAgendamentoComponent,
+    AgendamentoListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +41,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,57 +1,8 @@
-/*import 'package:flutter/material.dart';
-import 'package:pomodoro/core/models/user.dart';
-import 'selecao_dia.dart';
-import 'package:pomodoro/core/services/auth/auth_firebase_service.dart';
-
-class SelecionarProfissional extends StatelessWidget {
-  final String servico;
-  final FirebaseService firebaseService = FirebaseService();
-
-  SelecionarProfissional({required this.servico});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Selecione um Profissional'),
-      ),
-      body: FutureBuilder<List<Profissional>>(
-        future: firebaseService.getProfissionais(),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return Text('Erro ao carregar profissionais: ${snapshot.error}');
-          }
-
-          if (snapshot.connectionState == ConnectionState.done) {
-            List<Profissional> profissionais = snapshot.data!;
-            profissionais = profissionais.where((profissional) => profissional.funcao == servico).toList();
-
-            return ListView.builder(
-              itemCount: profissionais.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(profissionais[index].nome),
-                  onTap: () {
-                    // Navegue para a próxima tela e passe o profissional selecionado
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => AgendarHorario(profissional: profissionais[index])));
-                  },
-                );
-              },
-            );
-          }
-
-          return CircularProgressIndicator();
-        },
-      ),
-    );
-  }
-}
-*/
-
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/core/models/profissional.dart';
 import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
 import 'package:appcabelereiro/pages/agendamento.dart';
+import 'package:appcabelereiro/components/appbar.dart';
 
 class ProfissionalPage extends StatefulWidget {
   final String? servico;
@@ -74,10 +25,24 @@ class _ProfissionalPageState extends State<ProfissionalPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Escolha um Profissional'),
+    Theme(
+  data: Theme.of(context).copyWith(
+    primaryColor: Colors.deepPurple,
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
+    ),
+  ),
+  child: TextFormField(
+    decoration: InputDecoration(
+      labelText: 'Nome',
+    ),
+  ),
+);
+
+    return Scaffold(
+      appBar: CustomAppBar(),
       body: FutureBuilder<List<Profissional>>(
         future: profissionais,
         builder: (context, snapshot) {

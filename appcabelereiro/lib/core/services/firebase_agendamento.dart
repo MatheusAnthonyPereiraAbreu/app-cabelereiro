@@ -50,5 +50,18 @@ class FirebaseService {
       .set(agendamento.toMap());
   }
 
+   Future<List<Agendamento>> getAgendamentosDoCliente(String? clienteId) async {
+    QuerySnapshot snapshot = await _db.collection('agendamentos')
+      .where('nomeCliente', isEqualTo: clienteId)
+      .get();
+
+    return snapshot.docs.map((doc) => Agendamento.fromMap(doc.data() as Map<String, dynamic>)).toList();
+  }
+
+  Future<void> cancelarAgendamento(Agendamento agendamento) {
+    return _db.collection('agendamentos')
+      .doc('${agendamento.data.toIso8601String()}_${agendamento.horario}')
+      .delete();
+  }
 
 }

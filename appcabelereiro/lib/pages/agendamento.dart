@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
 import 'package:appcabelereiro/core/models/agendamento_class.dart';
+import 'package:appcabelereiro/core/services/auth_service.dart';
+
+
 class AgendamentoPage extends StatefulWidget {
   final String profissional;
   final String servico;
@@ -12,6 +15,7 @@ class AgendamentoPage extends StatefulWidget {
 
 class _AgendamentoPageState extends State<AgendamentoPage> {
   String? _horarioSelecionado;
+  final AuthService _authService = AuthService(); // Adicione isso
   final FirebaseService _firebaseService = FirebaseService();
   DateTime _selectedDate = DateTime.now();
   List<String> _horarios = ['8:00', '9:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
@@ -77,14 +81,16 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
 
   void _agendar() {
     if (_horarioSelecionado != null) {
+          String nomeCliente = _authService.currentUser?.name ?? ''; // Atualize isso
       Agendamento agendamento = Agendamento(
         data: _selectedDate,
         horario: _horarioSelecionado!,
-        nomeCliente: _nomeCliente,
+        nomeCliente: nomeCliente,
         servico: widget.servico,
         cabelereiro: widget.profissional,
       );
       _firebaseService.agendarHorario(widget.profissional, _selectedDate, _horarioSelecionado!);
+      _firebaseService.criarAgendamento(agendamento);
     }
   }
 

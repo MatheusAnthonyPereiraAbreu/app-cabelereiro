@@ -77,7 +77,7 @@ class _CriacaoProfissionalPageState extends State<CriacaoProfissionalPage> {
   void _criarProfissional() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      Profissional profissional = Profissional(nome: _nome, funcao: _funcao, diasOcupados: []);
+      Profissional profissional = Profissional(nome: _nome, funcao: _funcao);
       _firebaseService.criarProfissional(profissional);
        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Profissional criado com sucesso!')));
     }

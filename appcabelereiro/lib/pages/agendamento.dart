@@ -30,7 +30,8 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
   }
 
   Future<void> _getHorariosOcupados() async {
-    _horariosOcupados = await _firebaseService.getHorariosOcupados(widget.profissional, _selectedDate);
+    String dataFormatada = _selectedDate.toIso8601String().split('T')[0]; // Formata a data aqui
+    _horariosOcupados = await _firebaseService.getHorariosOcupados(widget.profissional, dataFormatada);
   }
 
    @override
@@ -95,17 +96,17 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
 void _agendar() {
   if (_horarioSelecionado != null) {
     String nomeCliente = _authService.currentUser?.name ?? '';
+    String dataFormatada = _selectedDate.toIso8601String().split('T')[0]; // Formata a data aqui
     Agendamento agendamento = Agendamento(
-      data: _selectedDate,
+      data: dataFormatada, // Passa a data formatada aqui
       horario: _horarioSelecionado!,
       nomeCliente: nomeCliente,
       servico: widget.servico,
       cabelereiro: widget.profissional,
     );
-    _firebaseService.agendarHorario(widget.profissional, _selectedDate, _horarioSelecionado!);
     _firebaseService.criarAgendamento(agendamento);
 
-   showDialog(
+    showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(

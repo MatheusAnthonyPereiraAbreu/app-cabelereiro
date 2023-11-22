@@ -26,25 +26,35 @@ class AuthFirebaseService implements AuthService {
   }
 
   Future<void> signup(
-    String name,
-    String email,
-    String password,
-    File? image,
-  ) async {
-    final auth = FirebaseAuth.instance;
-    UserCredential credential = await auth.createUserWithEmailAndPassword(
-        email: email, password: password);
+  String name,
+  String email,
+  String password,
+  File? image,
+) async {
+  final auth = FirebaseAuth.instance;
+  UserCredential credential = await auth.createUserWithEmailAndPassword(
+      email: email, password: password);
 
-    if (credential.user == null) return;
+  if (credential.user == null) return;
 
-    final imageName = '${credential.user!.uid}.jpg';
-    final imageURL = await _uploadUserImage(image, imageName);
+  final imageName = '${credential.user!.uid}.jpg';
+  final imageURL = await _uploadUserImage(image, imageName);
 
-    await credential.user?.updateDisplayName(name);
-    await credential.user?.updatePhotoURL(imageURL);
+  await credential.user?.updateDisplayName(name);
+  await credential.user?.updatePhotoURL(imageURL);
 
-    await _saveToDoUser(_toAppUser(credential.user!, imageURL));
-  }
+  await _saveToDoUser(_toAppUser(credential.user!, name, imageURL));
+}
+
+static AppUser _toAppUser(User user, [String? name, String? imageURL]) {
+  return AppUser(
+    id: user.uid,
+    name: name ?? user.displayName ?? user.email!.split('@')[0],
+    email: user.email!,
+    imageURL: imageURL ?? user.photoURL ?? 'chat/assets/images/avatar.png',
+  );
+}
+
 
   Future<void> login(
     String email,
@@ -76,15 +86,6 @@ class AuthFirebaseService implements AuthService {
       'email': user.email,
       'imageURL': user.imageURL,
     });
-  }
-
-  static AppUser _toAppUser(User user, [String? imageURL]) {
-    return AppUser(
-      id: user.uid,
-      name: user.displayName ?? user.email!.split('@')[0],
-      email: user.email!,
-      imageURL: imageURL ?? user.photoURL ?? 'chat/assets/images/avatar.png',
-    );
   }
 
   Future<void> alterarSenha(String novaSenha) async {

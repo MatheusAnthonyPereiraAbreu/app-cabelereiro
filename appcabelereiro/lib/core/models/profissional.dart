@@ -1,15 +1,13 @@
 class Profissional {
   String nome;
   String funcao;
-  List<String> diasOcupados;
 
-  Profissional({required this.nome, required this.funcao, required this.diasOcupados});
+  Profissional({required this.nome, required this.funcao});
 
   Map<String, dynamic> toMap() {
     return {
       'nome': nome,
       'funcao': funcao,
-      'diasOcupados': diasOcupados,
     };
   }
 
@@ -17,7 +15,6 @@ class Profissional {
     return Profissional(
       nome: map['nome'],
       funcao: map['funcao'],
-      diasOcupados: List<String>.from(map['diasOcupados']),
     );
   }
 }

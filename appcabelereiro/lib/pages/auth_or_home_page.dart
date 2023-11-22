@@ -5,12 +5,14 @@ import 'package:appcabelereiro/core/services/auth_service.dart';
 import 'package:appcabelereiro/pages/HomePage.dart';
 import 'package:appcabelereiro/pages/auth_page.dart';
 import 'package:appcabelereiro/pages/loading_page.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 
 class AuthOrAppPage extends StatelessWidget {
   const AuthOrAppPage({Key? key});
 
   Future<void> init(BuildContext context) async {
     await Firebase.initializeApp();
+    await FirebaseAppCheck.instance.activate();
   }
 
   @override

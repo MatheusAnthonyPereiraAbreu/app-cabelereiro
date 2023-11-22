@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/pages/select_service.dart';
-import 'package:appcabelereiro/pages/criar_profissional.dart';
+import 'package:appcabelereiro/pages/profile.dart';
 import 'package:appcabelereiro/components/appbar.dart';
 
 class HomePage extends StatelessWidget {
@@ -83,13 +83,13 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             ListTile(
-              title: Text('Teste'),
+              title: Text('Perfil'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CriacaoProfissionalPage(),
+                    builder: (context) => PerfilPage(),
                   ),
                 );
               },

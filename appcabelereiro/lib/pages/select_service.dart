@@ -21,7 +21,7 @@ class _ServicoPageState extends State<ServicoPage> {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 'Escolha seu serviço',
-                style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.black),
+                style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.black,fontSize: 35),
                 textAlign: TextAlign.center,
               ),
             ),

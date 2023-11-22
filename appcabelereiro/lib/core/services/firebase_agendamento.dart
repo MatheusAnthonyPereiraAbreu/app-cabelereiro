@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:appcabelereiro/core/models/profissional.dart';
 import 'package:appcabelereiro/core/models/agendamento_class.dart';
-import 'package:intl/intl.dart';
 
 class FirebaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
@@ -14,41 +13,25 @@ class FirebaseService {
     return snapshot.docs.map((doc) => Profissional.fromMap(doc.data() as Map<String, dynamic>)).toList();
   }
 
-  Future<List<String>> getHorariosOcupados(String profissional, DateTime data) async {
-    DocumentSnapshot snapshot = await _db.collection('profissionais')
-      .doc(profissional)
-      .collection('agendamentos')
-      .doc(DateFormat('yyyy-MM-dd').format(data))
-      .get();
+ Future<List<String>> getHorariosOcupados(String profissional, String data) async {
+  QuerySnapshot snapshot = await _db.collection('agendamentos')
+    .where('cabelereiro', isEqualTo: profissional)
+    .where('data', isEqualTo: data)
+    .get();
 
-    if (snapshot.exists) {
-      Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
-      return List<String>.from(data['horariosOcupados'] ?? []);
-    } else {
-      return [];
-    }
-  }
-
+  return snapshot.docs.map((doc) => doc['horario'] as String).toList();
+}
 
   Future<void> criarProfissional(Profissional profissional) {
     return _db.collection('profissionais').doc(profissional.nome).set(profissional.toMap());
   }
 
-  Future<void> agendarHorario(String profissional, DateTime data, String horario) {
-    return _db.collection('profissionais')
-      .doc(profissional)
-      .collection('agendamentos')
-      .doc(DateFormat('yyyy-MM-dd').format(data))
-      .set({
-        'horariosOcupados': FieldValue.arrayUnion([horario])
-      }, SetOptions(merge: true));
-  }
+Future<void> criarAgendamento(Agendamento agendamento) {
+  return _db.collection('agendamentos')
+    .doc() // Usa a data como string aqui
+    .set(agendamento.toMap());
+}
 
-  Future<void> criarAgendamento(Agendamento agendamento) {
-    return _db.collection('agendamentos')
-      .doc('${agendamento.data.toIso8601String()}_${agendamento.horario}')
-      .set(agendamento.toMap());
-  }
 
    Future<List<Agendamento>> getAgendamentosDoCliente(String? clienteId) async {
     QuerySnapshot snapshot = await _db.collection('agendamentos')
@@ -60,7 +43,7 @@ class FirebaseService {
 
   Future<void> cancelarAgendamento(Agendamento agendamento) {
     return _db.collection('agendamentos')
-      .doc('${agendamento.data.toIso8601String()}_${agendamento.horario}')
+      .doc('${agendamento.data}_${agendamento.horario}') // Usa a data como string aqui
       .delete();
   }
 

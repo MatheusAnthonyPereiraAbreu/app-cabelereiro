@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/pages/select_service.dart';
+import 'package:appcabelereiro/pages/profile.dart';
 import 'package:appcabelereiro/components/appbar.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       title: 'Cabeleireiro App',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.blue,
         textTheme: TextTheme(
           headline6: TextStyle(
             // fontFamily: 'Barlow Condensed',
@@ -85,7 +86,12 @@ class MyHomePage extends StatelessWidget {
               title: Text('Perfil'),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.pushNamed(context, '/pagina2');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PerfilPage(),
+                  ),
+                );
               },
             ),
           ],

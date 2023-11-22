@@ -1,8 +1,10 @@
+import 'package:appcabelereiro/pages/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
 import 'package:appcabelereiro/core/models/agendamento_class.dart';
 import 'package:appcabelereiro/core/services/auth_service.dart';
-
+import 'package:intl/intl.dart';
+import 'package:appcabelereiro/components/appbar.dart';
 
 class AgendamentoPage extends StatefulWidget {
   final String profissional;
@@ -27,51 +29,63 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
     _getHorariosOcupados();
   }
 
-  void _getHorariosOcupados() async {
-    _horariosOcupados = await _firebaseService.getHorariosOcupados(widget.profissional, _selectedDate);
+  Future<void> _getHorariosOcupados() async {
+    String dataFormatada = _selectedDate.toIso8601String().split('T')[0]; // Formata a data aqui
+    _horariosOcupados = await _firebaseService.getHorariosOcupados(widget.profissional, dataFormatada);
   }
 
    @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Agendamento com ${widget.profissional}'),
-      ),
+      appBar: CustomAppBar(),
       body: Column(
         children: <Widget>[
           ListTile(
-            title: Text('Data selecionada: ${_selectedDate.toLocal()}'),
+            title: Text('Agendando para: ${DateFormat('dd/MM/yyyy').format(_selectedDate)}'), // Formate a data aqui
             trailing: Icon(Icons.keyboard_arrow_down),
             onTap: _pickDate,
           ),
-          GridView.count(
-            shrinkWrap: true,
-            crossAxisCount: 3,
-            children: _horarios.map((horario) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.disabled)) return Colors.grey;
-                        if (_horarioSelecionado == horario) return Colors.green;
-                        return Theme.of(context).primaryColor;
-                      },
-                    ),
-                  ),
-                  onPressed: _horariosOcupados.contains(horario) ? null : () {
-                    setState(() {
-                      _horarioSelecionado = horario;
-                    });
-                  },
-                  child: Text(horario),
-                ),
-              );
-            }).toList(),
+          FutureBuilder(
+            future: _getHorariosOcupados(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  children: _horarios.map((horario) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (states.contains(MaterialState.disabled)) return Colors.grey;
+                              if (_horarioSelecionado == horario) return Colors.green;
+                              return Colors.black; // Defina a cor do botão para preto aqui
+                            },
+                          ),
+                        ),
+                        onPressed: _horariosOcupados.contains(horario) ? null : () {
+                          setState(() {
+                            _horarioSelecionado = horario;
+                          });
+                        },
+                        child: Text(horario),
+                      ),
+                    );
+                  }).toList(),
+                );
+              } else {
+                return CircularProgressIndicator();
+              }
+            },
           ),
           ElevatedButton(
             onPressed: _horarioSelecionado == null ? null : _agendar,
+            style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    onPrimary: Colors.white,
+                  ),
             child: Text('Agendar'),
           ),
         ],
@@ -79,35 +93,73 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
     );
   }
 
-  void _agendar() {
-    if (_horarioSelecionado != null) {
-          String nomeCliente = _authService.currentUser?.name ?? ''; // Atualize isso
-      Agendamento agendamento = Agendamento(
-        data: _selectedDate,
-        horario: _horarioSelecionado!,
-        nomeCliente: nomeCliente,
-        servico: widget.servico,
-        cabelereiro: widget.profissional,
-      );
-      _firebaseService.agendarHorario(widget.profissional, _selectedDate, _horarioSelecionado!);
-      _firebaseService.criarAgendamento(agendamento);
-    }
-  }
-
-
-  _pickDate() async {
-    DateTime? date = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(DateTime.now().year - 5),
-      lastDate: DateTime(DateTime.now().year + 5),
+void _agendar() {
+  if (_horarioSelecionado != null) {
+    String nomeCliente = _authService.currentUser?.name ?? '';
+    String dataFormatada = _selectedDate.toIso8601String().split('T')[0]; // Formata a data aqui
+    Agendamento agendamento = Agendamento(
+      data: dataFormatada, // Passa a data formatada aqui
+      horario: _horarioSelecionado!,
+      nomeCliente: nomeCliente,
+      servico: widget.servico,
+      cabelereiro: widget.profissional,
     );
-    if (date != null)
-      setState(() {
-        _selectedDate = date;
-        _getHorariosOcupados();
-      });
+    _firebaseService.criarAgendamento(agendamento);
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: Text('Sucesso', style: TextStyle(color: Colors.green)),
+          content: Text('Agendado com sucesso', style: TextStyle(fontSize: 18)),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK', style: TextStyle(color: Colors.blue, fontSize: 18)),
+              onPressed: () {
+               Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 
 
+
+ _pickDate() async {
+  DateTime? date = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime.now(),
+    lastDate: DateTime(DateTime.now().year + 5),
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: ThemeData.light().copyWith(
+          primaryColor: Colors.grey,
+          colorScheme: ColorScheme.light(primary: Colors.grey),
+          buttonTheme: ButtonThemeData(
+            textTheme: ButtonTextTheme.primary
+          ),
+        ),
+        child: child!,
+      );
+    },
+  );
+  if (date != null)
+    setState(() {
+      _selectedDate = date;
+      _getHorariosOcupados();
+    });
+}
+}

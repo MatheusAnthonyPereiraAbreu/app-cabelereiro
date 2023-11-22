@@ -1,7 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Agendamento {
-  DateTime data;
+  String data;
   String horario;
   String nomeCliente;
   String servico;
@@ -27,7 +26,7 @@ class Agendamento {
 
   factory Agendamento.fromMap(Map<String, dynamic> map) {
     return Agendamento(
-      data: (map['data'] as Timestamp).toDate(),
+      data: map['data'],
       horario: map['horario'],
       nomeCliente: map['nomeCliente'],
       servico: map['servico'],

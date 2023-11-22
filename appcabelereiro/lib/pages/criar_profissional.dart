@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
 import 'package:appcabelereiro/core/models/profissional.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CriacaoProfissionalPage extends StatefulWidget {
   @override
@@ -12,6 +15,7 @@ class _CriacaoProfissionalPageState extends State<CriacaoProfissionalPage> {
   final FirebaseService _firebaseService = FirebaseService();
   String _nome = '';
   String _funcao = '';
+  File? _imageFile;
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +52,10 @@ class _CriacaoProfissionalPageState extends State<CriacaoProfissionalPage> {
               },
             ),
             ElevatedButton(
+              onPressed: _selecionarImagem,
+              child: Text('Selecionar Imagem'),
+            ),
+            ElevatedButton(
               onPressed: _criarProfissional,
               child: Text('Criar Profissional'),
             ),
@@ -57,11 +65,24 @@ class _CriacaoProfissionalPageState extends State<CriacaoProfissionalPage> {
     );
   }
 
+  void _selecionarImagem() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedFile != null) {
+        _imageFile = File(pickedFile.path);
+      } else {
+        print('Nenhuma imagem selecionada.');
+      }
+    });
+  }
+
   void _criarProfissional() {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate() && _imageFile != null) {
       _formKey.currentState!.save();
-      Profissional profissional = Profissional(nome: _nome, funcao: _funcao, diasOcupados: []);
-      _firebaseService.criarProfissional(profissional);
+      Profissional profissional = Profissional(nome: _nome, funcao: _funcao, diasOcupados: [], imageUrl: '');
+      _firebaseService.criarProfissional(profissional, _imageFile!);
     }
   }
 }

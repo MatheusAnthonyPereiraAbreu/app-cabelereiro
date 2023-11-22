@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:appcabelereiro/core/models/profissional.dart';
 import 'package:appcabelereiro/core/models/agendamento_class.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
 
 class FirebaseService {
@@ -30,9 +33,21 @@ class FirebaseService {
   }
 
 
-  Future<void> criarProfissional(Profissional profissional) {
-    return _db.collection('profissionais').doc(profissional.nome).set(profissional.toMap());
-  }
+  Future<void> criarProfissional(Profissional profissional, File imageFile) async {
+  // Fazer o upload da imagem para o Firebase Storage
+  String fileName = '${DateTime.now().millisecondsSinceEpoch}_${profissional.nome}';
+  Reference ref = FirebaseStorage.instance.ref().child('profissionais').child(fileName);
+  UploadTask uploadTask = ref.putFile(imageFile);
+  TaskSnapshot taskSnapshot = await uploadTask;
+
+  // Obter a URL da imagem
+  String imageUrl = await taskSnapshot.ref.getDownloadURL();
+
+  // Salvar a URL da imagem no Firestore
+  profissional.imageUrl = imageUrl;
+  return _db.collection('profissionais').doc(profissional.nome).set(profissional.toMap());
+}
+
 
   Future<void> agendarHorario(String profissional, DateTime data, String horario) {
     return _db.collection('profissionais')

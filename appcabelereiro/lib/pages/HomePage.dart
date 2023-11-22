@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haircutapp/core/services/auth_service.dart';
-import 'package:haircutapp/pages/simulador_page.dart';
+import 'package:appcabelereiro/pages/select_service.dart';
+import 'package:appcabelereiro/components/appbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,13 +15,13 @@ class HomePage extends StatelessWidget {
           headline6: TextStyle(
             // fontFamily: 'Barlow Condensed',
             fontWeight: FontWeight.w700,
-            fontSize: 57.0,
+            fontSize: 50.0,
             color: Colors.white,
           ),
           bodyText2: TextStyle(
             // fontFamily: 'Barlow Condensed',
             fontWeight: FontWeight.w300,
-            fontSize: 26.0,
+            fontSize: 20.0,
             color: Colors.white,
           ),
         ),
@@ -39,56 +39,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar:
           true, // Permitir que a imagem se estenda atrás do AppBar
-      appBar: AppBar(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20),
-          ),
-        ),
-        centerTitle: true,
-        title: Icon(
-          Icons.spa,
-          size: 30,
-          color: Colors.white,
-        ),
-        backgroundColor:
-            Colors.black.withOpacity(0.8), // Tornar o AppBar transparente
-        elevation: 0,
-        actions: <Widget>[
-          DropdownButtonHideUnderline(
-            child: DropdownButton(
-              icon: Icon(
-                Icons.more_vert,
-                color: Colors.white,
-              ),
-              items: [
-                DropdownMenuItem(
-                  value: 'logout',
-                  child: Container(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.exit_to_app,
-                          color: Colors.grey.shade900,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text('Sair'),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-              onChanged: (value) {
-                if (value == 'logout') {
-                  AuthService().logout();
-                }
-              },
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -106,19 +57,32 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('Página simulada'),
+              title: Text('Home'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => StoryPage(),
+                    builder: (context) => HomePage(),
                   ),
                 );
               },
             ),
             ListTile(
-              title: Text('Página 2'),
+              
+              title: Text('Agendar Horário'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ServicoPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: Text('Perfil'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/pagina2');
@@ -152,7 +116,7 @@ class MyHomePage extends StatelessWidget {
                             padding: EdgeInsets.only(
                                 top: AppBar().preferredSize.height),
                             child: Icon(
-                              Icons.cut,
+                              Icons.spa,
                               size: 150,
                               color: Colors.white,
                             ),

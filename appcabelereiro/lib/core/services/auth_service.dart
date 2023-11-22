@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:haircutapp/core/models/app_user.dart';
-import 'package:haircutapp/core/services/auth_firebase_service.dart';
+import 'package:appcabelereiro/core/models/app_user.dart';
+import 'package:appcabelereiro/core/services/auth_firebase_service.dart';
 
 abstract class AuthService {
   AppUser? get currentUser;
@@ -21,6 +21,8 @@ abstract class AuthService {
   );
 
   Future<void> logout();
+
+  Future<void> alterarSenha(String novaSenha);
 
   factory AuthService() {
     return AuthFirebaseService();

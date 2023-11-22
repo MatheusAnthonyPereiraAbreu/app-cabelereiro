@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:haircutapp/core/models/app_user.dart';
-import 'package:haircutapp/core/services/auth_service.dart';
+import 'package:appcabelereiro/core/models/app_user.dart';
+import 'package:appcabelereiro/core/services/auth_service.dart';
 
 class AuthFirebaseService implements AuthService {
   static AppUser? _currentUser;
@@ -86,4 +86,18 @@ class AuthFirebaseService implements AuthService {
       imageURL: imageURL ?? user.photoURL ?? 'chat/assets/images/avatar.png',
     );
   }
+
+  Future<void> alterarSenha(String novaSenha) async {
+  User? usuario = FirebaseAuth.instance.currentUser;
+
+  if (usuario != null) {
+    await usuario.updatePassword(novaSenha).then((_) {
+      print("Senha alterada com sucesso");
+    }).catchError((error) {
+      print("Falha ao alterar a senha: $error");
+    });
+  }
+}
+
+  
 }

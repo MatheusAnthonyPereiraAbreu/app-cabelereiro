@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:haircutapp/components/auth_form.dart';
-import 'package:haircutapp/core/models/auth_form_data.dart';
-import 'package:haircutapp/core/services/auth_service.dart';
+import 'package:appcabelereiro/components/auth_form.dart';
+import 'package:appcabelereiro/core/models/auth_form_data.dart';
+import 'package:appcabelereiro/core/services/auth_service.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key});

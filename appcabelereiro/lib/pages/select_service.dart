@@ -1,34 +1,6 @@
-/*import 'package:flutter/material.dart';
-import 'package:pomodoro/pages/selecao_profissional.dart';
-
-class SelecionarServico extends StatelessWidget {
-  final List<String> servicos = ['Corte de cabelo', 'Barba', 'Manicure', 'Pedicure'];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Selecione um Serviço'),
-      ),
-      body: ListView.builder(
-        itemCount: servicos.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(servicos[index]),
-            onTap: () {
-              // Navegue para a próxima tela e passe o serviço selecionado
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SelecionarProfissional(servico: servicos[index])));
-            },
-          );
-        },
-      ),
-    );
-  }
-}
-*/
-
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/pages/select_profissional.dart';
+import 'package:appcabelereiro/components/appbar.dart';
 
 class ServicoPage extends StatefulWidget {
   @override
@@ -43,34 +15,46 @@ class _ServicoPageState extends State<ServicoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Selecione um Serviço'),
-      ),
+      appBar: CustomAppBar(),
       body: Form(
         key: _formKey,
         child: Column(
           children: <Widget>[
-            DropdownButtonFormField(
-              value: _servicoSelecionado,
-              items: servicos.map((servico) {
-                return DropdownMenuItem(
-                  value: servico,
-                  child: Text(servico),
-                );
-              }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  _servicoSelecionado = value as String?;
-                });
-              },
-              validator: (value) {
-                if (value == null) {
-                  return 'Por favor, selecione um serviço';
-                }
-                return null;
-              },
+            Theme(
+              data: Theme.of(context).copyWith(
+                primaryColor: Colors.black,
+                inputDecorationTheme: InputDecorationTheme(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+              child: DropdownButtonFormField(
+                value: _servicoSelecionado,
+                items: servicos.map((servico) {
+                  return DropdownMenuItem(
+                    value: servico,
+                    child: Text(servico),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _servicoSelecionado = value as String?;
+                  });
+                },
+                validator: (value) {
+                  if (value == null) {
+                    return 'Por favor, selecione um serviço';
+                  }
+                  return null;
+                },
+              ),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black, // Cor de fundo do botão
+                onPrimary: Colors.white, // Cor do texto
+              ),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   Navigator.push(

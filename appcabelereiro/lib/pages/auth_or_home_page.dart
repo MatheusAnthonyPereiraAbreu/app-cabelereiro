@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:haircutapp/core/models/app_user.dart';
-import 'package:haircutapp/core/services/auth_service.dart';
-import 'package:haircutapp/pages/HomePage.dart';
-import 'package:haircutapp/pages/auth_page.dart';
-import 'package:haircutapp/pages/loading_page.dart';
+import 'package:appcabelereiro/core/models/app_user.dart';
+import 'package:appcabelereiro/core/services/auth_service.dart';
+import 'package:appcabelereiro/pages/HomePage.dart';
+import 'package:appcabelereiro/pages/auth_page.dart';
+import 'package:appcabelereiro/pages/loading_page.dart';
 
 class AuthOrAppPage extends StatelessWidget {
   const AuthOrAppPage({Key? key});

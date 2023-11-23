@@ -5,7 +5,6 @@ export interface UserServices {
     displayName: string;
     photoURL: string;
     emailVerified: boolean;
-
 }
 export class AdmUser{
     constructor(

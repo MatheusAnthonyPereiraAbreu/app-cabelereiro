@@ -1,50 +1,70 @@
 import { Injectable } from '@angular/core';
-import { Agendamento } from '../agendamento';
-import {
-  AngularFireDatabase,
-  AngularFireList,
-  AngularFireObject,
-} from '@angular/fire/compat/database';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { agendamentos } from '../agendamento';
+import { collection, deleteDoc, doc, getDocs, getFirestore, query } from 'firebase/firestore';
+import { AuthService } from './auth.services';
+
 @Injectable({
   providedIn: 'root',
 })
 export class CrudService {
-  agendamentosRef: AngularFireList<any>;
-  agendamentoRef: AngularFireObject<any>;
-  constructor(private db: AngularFireDatabase) {}
-  // Create Student
-  AddAgendamento(agenda: Agendamento) {
-    this.agendamentosRef.push({
-      key: agenda.$key,
-      data: agenda.dataTime,
-      nome: agenda.nomeCliente,
-      service: agenda.servico,
-      profi:agenda.cabelereiro
-    });
+  agendamentosCollection: AngularFirestoreCollection<agendamentos>;
+  agendamentoDoc: AngularFirestoreDocument<agendamentos>;
+  agendamentoRef: any;
+  key: string;
+  constructor(
+    private afs: AngularFirestore
+  ) {
+    this.agendamentosCollection = this.afs.collection('agendamentos');
   }
-  // Fetch Single Student Object
-  GetAgendamento(id: string) {
-    this.agendamentoRef = this.db.object('agendamentos-list/' + id);
+  // Criar Agendamento
+  async AddAgendamento(agenda: agendamentos) {
+    await this.agendamentosCollection.add({
+      nomeCliente: agenda.nomeCliente,
+      data: agenda.data,
+      horario: agenda.horario,
+      servico: agenda.servico,
+      cabelereiro: agenda.cabelereiro,
+    })
+
+  }
+  // Obter Agendamento por ID
+  async GetAgendamento(key: string): Promise<AngularFirestoreDocument<agendamentos>> {
+    await this.agendamentoRef; this.afs.doc('agendamentos/' + key);
     return this.agendamentoRef;
   }
-  // Fetch Students List
-  GetAgendamentoList() {
-    this.agendamentosRef = this.db.list('agendamentos-list');
-    return this.agendamentosRef;
+  // Obter Lista de Agendamentos
+  async GetAgendamentoList(): Promise<any[]> {
+    const db = getFirestore()
+    const q = query(collection(db, "agendamentos"))
+    let agendamentos = [ ]
+    await getDocs(q).then((snapshot) => {
+      snapshot.forEach((doc) => {
+        agendamentos.push({
+          id:doc.id,
+          info: doc.data()
+        })
+      }
+      )
+    
+    })
+    return agendamentos;
   }
-  // Update Student Object
-  UpdateAgendamento(agenda: Agendamento) {
-    this.agendamentoRef.update({
-      key: agenda.$key,
-      data: agenda.dataTime,
-      nome: agenda.nomeCliente,
-      service: agenda.servico,
-      profi:agenda.cabelereiro,
+  // Atualizar Agendamento
+  async UpdateAgendamento(agenda: agendamentos , key:string) {
+    this.agendamentoDoc = this.afs.doc('agendamentos/'+ key)
+    await this.agendamentoDoc.update({
+      data: agenda.data,
+      nomeCliente: agenda.nomeCliente,
+      horario: agenda.horario,
+      servico: agenda.servico,
+      cabelereiro: agenda.cabelereiro,
     });
   }
-  // Delete Student Object
-  DeleteAgendamento(id: string) {
-    this.agendamentoRef = this.db.object('students-list/' + id);
-    this.agendamentoRef.remove();
+  // Deletar Agendamento
+  async DeleteAgendamento(key:string) {
+    await this.afs.doc('agendamentos/' + key).delete();
+    window.location.reload()
   }
 }

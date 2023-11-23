@@ -6,7 +6,8 @@
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
         <a class="nav-link" routerLink="/register-agendamento">
-          <span class="user-image" src = "{{(user.photoURL) ? user.photoURL : '/assets/user-default.png'}}" ></span>
+          <div class="user-image" [style.background-image]="'url(' + (authService.userData.photoURL ? authService.userData.photoURL : 'assets/user-default.png') + ')'"></div>
+          
           Hello Admin
         </a>
       </li>

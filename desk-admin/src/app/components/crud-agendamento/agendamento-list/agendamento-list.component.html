@@ -1,1 +1,52 @@
-<p>agendamento-list works!</p>
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h2 class="h2">Agendamento List</h2>
+  <a
+    routerLink="/register-agendamento"
+    class="btn btn-success"
+    *ngIf="hideWhenNoAgendamento"
+  >
+    Add Agendamento
+  </a>
+</div>
+<div class="pricing-header mx-auto">
+  <div class="no-data text-center" *ngIf="preLoader">
+    <img src="assets/preloader.gif" class="preloader-icon" alt="No agendamento" />
+  </div>
+  <div class="no-data text-center" *ngIf="noData">
+    <img src="assets/no-student.svg" class="nodata-msg" alt="No agendamento" />
+    <p class="nodata-msg">Sem agendamento ainda!</p>
+    <a routerLink="/register-agendamento" class="btn btn-success"> Add Agendamento </a>
+  </div>
+  <div class="table-responsive" *ngIf="hideWhenNoAgendamento">
+    <table
+      class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg"
+    >
+      <thead>
+        <tr>
+          <th scope="col">Nome do Cliente:</th>
+          <th scope="col">Data: </th>
+          <th scope="col">Horario:</th>
+          <th scope="col">Serviços:</th>
+          <th scope="col">Profissionais:</th>
+          <th class="text-center" scope="col">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let agendamento of Agendamento | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
+          <th scope="row">{{ agendamento.info.nomeCliente }}</th>
+          <td>{{ agendamento.info.data }}</td>
+          <td>{{ agendamento.info.horario }}</td>
+          <td>{{ agendamento.info.servico }}</td>
+          <td>{{ agendamento.info.cabelereiro }}</td>
+          <td class="text-center action-block">
+            <span class="mr-2 btn btn-outline-primary btn-sm" routerLink="/edit-agendamento/{{ agendamento.id }}">Edit</span>
+            <span class="btn btn-outline-danger btn-sm" (click)="deleteAgendamento(agendamento)">Delete</span>
+          </td>
+        </tr>        
+      </tbody>
+    </table>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

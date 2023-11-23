@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [UnloggedGuard , LoggedGuard , AdmGuard] },
+  { path: 'dashboard', component: DashboardComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'register-agendamento', component: AddAgendamentoComponent },

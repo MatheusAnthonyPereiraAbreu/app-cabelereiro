@@ -20,6 +20,8 @@ import { EditAgendamentoComponent } from './components/crud-agendamento/edit-age
 import { AgendamentoListComponent } from './components/crud-agendamento/agendamento-list/agendamento-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,10 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,13 +13,21 @@ class FirebaseService {
     return snapshot.docs.map((doc) => Profissional.fromMap(doc.data() as Map<String, dynamic>)).toList();
   }
 
- Future<List<String>> getHorariosOcupados(String profissional, String data) async {
-  QuerySnapshot snapshot = await _db.collection('agendamentos')
+Future<List<String>> getHorariosOcupados(String profissional, String data, String usuarioAtual) async {
+  QuerySnapshot snapshotProfissional = await _db.collection('agendamentos')
     .where('cabelereiro', isEqualTo: profissional)
     .where('data', isEqualTo: data)
     .get();
 
-  return snapshot.docs.map((doc) => doc['horario'] as String).toList();
+  QuerySnapshot snapshotUsuario = await _db.collection('agendamentos')
+    .where('nomeCliente', isEqualTo: usuarioAtual)
+    .where('data', isEqualTo: data)
+    .get();
+
+  List<String> horariosOcupadosProfissional = snapshotProfissional.docs.map((doc) => doc['horario'] as String).toList();
+  List<String> horariosOcupadosUsuario = snapshotUsuario.docs.map((doc) => doc['horario'] as String).toList();
+
+  return [...horariosOcupadosProfissional, ...horariosOcupadosUsuario];
 }
 
   Future<void> criarProfissional(Profissional profissional) {

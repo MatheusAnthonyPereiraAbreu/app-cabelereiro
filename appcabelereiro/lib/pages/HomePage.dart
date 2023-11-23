@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       title: 'Cabeleireiro App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
         textTheme: TextTheme(
           headline6: TextStyle(
             // fontFamily: 'Barlow Condensed',

@@ -25,8 +25,7 @@ class AuthOrAppPage extends StatelessWidget {
         } else {
           return MaterialApp(
             theme: ThemeData(
-              primarySwatch: Colors
-                  .teal, // Cor primária utilizada para AppBar, FloatingActionButton, etc.
+              primarySwatch: Colors.deepPurple,
               buttonTheme: ButtonThemeData(
                 buttonColor: Colors.black, // Cor dos botões
                 textTheme:

@@ -1,4 +1,4 @@
-import 'package:appcabelereiro/pages/HomePage.dart';
+import 'package:appcabelereiro/pages/Agendado.dart';
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
 import 'package:appcabelereiro/core/models/agendamento_class.dart';
@@ -31,7 +31,7 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
 
   Future<void> _getHorariosOcupados() async {
     String dataFormatada = _selectedDate.toIso8601String().split('T')[0]; // Formata a data aqui
-    _horariosOcupados = await _firebaseService.getHorariosOcupados(widget.profissional, dataFormatada);
+    _horariosOcupados = await _firebaseService.getHorariosOcupados(widget.profissional, dataFormatada,_authService.currentUser!.name);
   }
 
    @override
@@ -105,33 +105,13 @@ void _agendar() {
       cabelereiro: widget.profissional,
     );
     _firebaseService.criarAgendamento(agendamento);
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          title: Text('Sucesso', style: TextStyle(color: Colors.green)),
-          content: Text('Agendado com sucesso', style: TextStyle(fontSize: 18)),
-          actions: <Widget>[
-            TextButton(
-              child: Text('OK', style: TextStyle(color: Colors.blue, fontSize: 18)),
-              onPressed: () {
                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage(),
+                    builder: (context) => Agendado(),
                   ),
                 );
-              },
-            ),
-          ],
-        );
-      },
-    );
   }
 }
 

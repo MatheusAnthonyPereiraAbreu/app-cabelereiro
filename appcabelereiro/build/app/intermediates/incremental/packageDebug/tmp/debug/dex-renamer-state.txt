@@ -1,4 +1,4 @@
-#Wed Nov 22 17:48:22 BRT 2023
+#Thu Nov 23 13:37:55 BRT 2023
 base.0=/home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 base.1=/home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
 base.2=/home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex

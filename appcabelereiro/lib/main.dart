@@ -1,12 +1,7 @@
-
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:appcabelereiro/pages/select_service.dart';
+import 'package:appcabelereiro/pages/auth_or_home_page.dart';
 
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(MyApp());
 }
 
@@ -18,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ServicoPage(),
+      home: AuthOrAppPage(),
     );
   }
 }

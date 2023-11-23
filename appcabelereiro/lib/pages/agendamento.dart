@@ -1,72 +1,15 @@
-/*import 'package:flutter/material.dart';
-import 'package:pomodoro/core/models/user.dart';
-import 'package:pomodoro/core/services/auth/auth_firebase_service.dart';
-import 'package:intl/intl.dart';
-
-class AgendarHorario extends StatefulWidget {
-  final Profissional profissional;
-
-  AgendarHorario({required this.profissional});
-
-  @override
-  _AgendarHorarioState createState() => _AgendarHorarioState();
-}
-
-class _AgendarHorarioState extends State<AgendarHorario> {
-  DateTime dataSelecionada = DateTime.now();
-  List<String> horariosIndisponiveis = [];
-  final FirebaseService firebaseService = FirebaseService();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Agendar Horário'),
-      ),
-      body: Column(
-        children: [
-          ListTile(
-            title: Text('Data: ${DateFormat('dd/MM/yyyy').format(dataSelecionada)}'),
-            trailing: Icon(Icons.calendar_today),
-            onTap: () async {
-              DateTime? data = await showDatePicker(
-                context: context,
-                initialDate: dataSelecionada,
-                firstDate: DateTime.now(),
-                lastDate: DateTime.now().add(Duration(days: 365)),
-              );
-
-              if (data != null) {
-                setState(() {
-                  dataSelecionada = data;
-                  // Atualize a lista de horários indisponíveis
-                  atualizarHorariosIndisponiveis();
-                });
-              }
-            },
-          ),
-          // Lista de horários vai aqui
-        ],
-      ),
-    );
-  }
-
-  void atualizarHorariosIndisponiveis() {
-    // Busque os horários indisponíveis do Firebase
-    firebaseService.getProfissional(widget.profissional.nome).then((profissional) {
-      setState(() {
-        horariosIndisponiveis = profissional.datasIndisponiveis.where((dataHorario) => dataHorario.startsWith(DateFormat('yyyy-MM-dd').format(dataSelecionada))).toList();
-      });
-    });
-  }
-}
-*/
-
+import 'package:appcabelereiro/pages/Agendado.dart';
 import 'package:flutter/material.dart';
-import 'package:appcabelereiro/core/services/firebase.dart'; 
+import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
+import 'package:appcabelereiro/core/models/agendamento_class.dart';
+import 'package:appcabelereiro/core/services/auth_service.dart';
+import 'package:intl/intl.dart';
+import 'package:appcabelereiro/components/appbar.dart';
 
 class AgendamentoPage extends StatefulWidget {
   final String profissional;
-  AgendamentoPage({Key? key, required this.profissional}) : super(key: key);
+  final String servico;
+  AgendamentoPage({Key? key, required this.profissional, required this.servico}) : super(key: key);
 
   @override
   _AgendamentoPageState createState() => _AgendamentoPageState();
@@ -74,6 +17,7 @@ class AgendamentoPage extends StatefulWidget {
 
 class _AgendamentoPageState extends State<AgendamentoPage> {
   String? _horarioSelecionado;
+  final AuthService _authService = AuthService(); // Adicione isso
   final FirebaseService _firebaseService = FirebaseService();
   DateTime _selectedDate = DateTime.now();
   List<String> _horarios = ['8:00', '9:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
@@ -85,51 +29,63 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
     _getHorariosOcupados();
   }
 
-  void _getHorariosOcupados() async {
-    _horariosOcupados = await _firebaseService.getHorariosOcupados(widget.profissional, _selectedDate);
+  Future<void> _getHorariosOcupados() async {
+    String dataFormatada = _selectedDate.toIso8601String().split('T')[0]; // Formata a data aqui
+    _horariosOcupados = await _firebaseService.getHorariosOcupados(widget.profissional, dataFormatada,_authService.currentUser!.name);
   }
 
    @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Agendamento com ${widget.profissional}'),
-      ),
+      appBar: CustomAppBar(),
       body: Column(
         children: <Widget>[
           ListTile(
-            title: Text('Data selecionada: ${_selectedDate.toLocal()}'),
+            title: Text('Agendando para: ${DateFormat('dd/MM/yyyy').format(_selectedDate)}'), // Formate a data aqui
             trailing: Icon(Icons.keyboard_arrow_down),
             onTap: _pickDate,
           ),
-          GridView.count(
-            shrinkWrap: true,
-            crossAxisCount: 3,
-            children: _horarios.map((horario) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.disabled)) return Colors.grey;
-                        if (_horarioSelecionado == horario) return Colors.green;
-                        return Theme.of(context).primaryColor;
-                      },
-                    ),
-                  ),
-                  onPressed: _horariosOcupados.contains(horario) ? null : () {
-                    setState(() {
-                      _horarioSelecionado = horario;
-                    });
-                  },
-                  child: Text(horario),
-                ),
-              );
-            }).toList(),
+          FutureBuilder(
+            future: _getHorariosOcupados(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  children: _horarios.map((horario) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (states.contains(MaterialState.disabled)) return Colors.grey;
+                              if (_horarioSelecionado == horario) return Colors.green;
+                              return Colors.black; // Defina a cor do botão para preto aqui
+                            },
+                          ),
+                        ),
+                        onPressed: _horariosOcupados.contains(horario) ? null : () {
+                          setState(() {
+                            _horarioSelecionado = horario;
+                          });
+                        },
+                        child: Text(horario),
+                      ),
+                    );
+                  }).toList(),
+                );
+              } else {
+                return CircularProgressIndicator();
+              }
+            },
           ),
           ElevatedButton(
             onPressed: _horarioSelecionado == null ? null : _agendar,
+            style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    onPrimary: Colors.white,
+                  ),
             child: Text('Agendar'),
           ),
         ],
@@ -137,26 +93,53 @@ class _AgendamentoPageState extends State<AgendamentoPage> {
     );
   }
 
-  void _agendar() {
-    if (_horarioSelecionado != null) {
-      _firebaseService.agendarHorario(widget.profissional, _selectedDate, _horarioSelecionado!);
-    }
-  }
-
-
-  _pickDate() async {
-    DateTime? date = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(DateTime.now().year - 5),
-      lastDate: DateTime(DateTime.now().year + 5),
+void _agendar() {
+  if (_horarioSelecionado != null) {
+    String nomeCliente = _authService.currentUser?.name ?? '';
+    String dataFormatada = _selectedDate.toIso8601String().split('T')[0]; // Formata a data aqui
+    Agendamento agendamento = Agendamento(
+      data: dataFormatada, // Passa a data formatada aqui
+      horario: _horarioSelecionado!,
+      nomeCliente: nomeCliente,
+      servico: widget.servico,
+      cabelereiro: widget.profissional,
     );
-    if (date != null)
-      setState(() {
-        _selectedDate = date;
-        _getHorariosOcupados();
-      });
+    _firebaseService.criarAgendamento(agendamento);
+               Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Agendado(),
+                  ),
+                );
   }
 }
 
 
+
+ _pickDate() async {
+  DateTime? date = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime.now(),
+    lastDate: DateTime(DateTime.now().year + 5),
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: ThemeData.light().copyWith(
+          primaryColor: Colors.grey,
+          colorScheme: ColorScheme.light(primary: Colors.grey),
+          buttonTheme: ButtonThemeData(
+            textTheme: ButtonTextTheme.primary
+          ),
+        ),
+        child: child!,
+      );
+    },
+  );
+  if (date != null)
+    setState(() {
+      _selectedDate = date;
+      _getHorariosOcupados();
+    });
+}
+}

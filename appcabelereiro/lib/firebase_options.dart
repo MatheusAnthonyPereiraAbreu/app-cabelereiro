@@ -44,38 +44,44 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAMcj_WWTsV0qSWE4Oq1VYOBv2g2XAy0NA',
-    appId: '1:186637229156:web:65c87ec1599b6cfc219371',
-    messagingSenderId: '186637229156',
-    projectId: 'teste-3ac0d',
-    authDomain: 'teste-3ac0d.firebaseapp.com',
-    storageBucket: 'teste-3ac0d.appspot.com',
-    measurementId: 'G-K5WGH7EMHP',
+    apiKey: 'AIzaSyD05tYDptB3pHZd9J36tqryDxzTYkS-tMs',
+    appId: '1:614911566185:web:a6a66fe23ef1cbb6b99df8',
+    messagingSenderId: '614911566185',
+    projectId: 'app-cabelereiro',
+    authDomain: 'app-cabelereiro.firebaseapp.com',
+    databaseURL: 'https://app-cabelereiro-default-rtdb.firebaseio.com',
+    storageBucket: 'app-cabelereiro.appspot.com',
+    measurementId: 'G-856K34E670',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCo6U2-ZWDJIuarkSXqrZavKuHjVegveik',
-    appId: '1:186637229156:android:bd600cc73a86677f219371',
-    messagingSenderId: '186637229156',
-    projectId: 'teste-3ac0d',
-    storageBucket: 'teste-3ac0d.appspot.com',
+    apiKey: 'AIzaSyBXBEMO0Wm-Ycs92sqbWqdoUEx3z5ZKukw',
+    appId: '1:614911566185:android:09fa097027902540b99df8',
+    messagingSenderId: '614911566185',
+    projectId: 'app-cabelereiro',
+    databaseURL: 'https://app-cabelereiro-default-rtdb.firebaseio.com',
+    storageBucket: 'app-cabelereiro.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBywxZn7555RfDI-57-bE7sR_PYenhhduk',
-    appId: '1:186637229156:ios:eab163e64cc291ab219371',
-    messagingSenderId: '186637229156',
-    projectId: 'teste-3ac0d',
-    storageBucket: 'teste-3ac0d.appspot.com',
+    apiKey: 'AIzaSyAFZ2XgTbIdr7e7OK2TbuQQZ7YXMdF51H0',
+    appId: '1:614911566185:ios:922fc5d6253224f2b99df8',
+    messagingSenderId: '614911566185',
+    projectId: 'app-cabelereiro',
+    databaseURL: 'https://app-cabelereiro-default-rtdb.firebaseio.com',
+    storageBucket: 'app-cabelereiro.appspot.com',
+    iosClientId: '614911566185-s9hftiljivpi0et72lt2cievo7b9k8oj.apps.googleusercontent.com',
     iosBundleId: 'com.example.appcabelereiro',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBywxZn7555RfDI-57-bE7sR_PYenhhduk',
-    appId: '1:186637229156:ios:a29bb1ca5c829b1b219371',
-    messagingSenderId: '186637229156',
-    projectId: 'teste-3ac0d',
-    storageBucket: 'teste-3ac0d.appspot.com',
+    apiKey: 'AIzaSyAFZ2XgTbIdr7e7OK2TbuQQZ7YXMdF51H0',
+    appId: '1:614911566185:ios:fafb7c4010dedc0ab99df8',
+    messagingSenderId: '614911566185',
+    projectId: 'app-cabelereiro',
+    databaseURL: 'https://app-cabelereiro-default-rtdb.firebaseio.com',
+    storageBucket: 'app-cabelereiro.appspot.com',
+    iosClientId: '614911566185-dt2os4gpm13g4ourkdo2nn8198tbg9s3.apps.googleusercontent.com',
     iosBundleId: 'com.example.appcabelereiro.RunnerTests',
   );
 }

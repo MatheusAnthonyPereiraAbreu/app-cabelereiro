@@ -1,34 +1,6 @@
-/*import 'package:flutter/material.dart';
-import 'package:pomodoro/pages/selecao_profissional.dart';
-
-class SelecionarServico extends StatelessWidget {
-  final List<String> servicos = ['Corte de cabelo', 'Barba', 'Manicure', 'Pedicure'];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Selecione um Serviço'),
-      ),
-      body: ListView.builder(
-        itemCount: servicos.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(servicos[index]),
-            onTap: () {
-              // Navegue para a próxima tela e passe o serviço selecionado
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SelecionarProfissional(servico: servicos[index])));
-            },
-          );
-        },
-      ),
-    );
-  }
-}
-*/
-
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/pages/select_profissional.dart';
+import 'package:appcabelereiro/components/appbar.dart';
 
 class ServicoPage extends StatefulWidget {
   @override
@@ -36,56 +8,109 @@ class ServicoPage extends StatefulWidget {
 }
 
 class _ServicoPageState extends State<ServicoPage> {
-  final _formKey = GlobalKey<FormState>();
-  final List<String> servicos = ['Corte de cabelo', 'Barba', 'Limpeza', 'Progressiva', 'Pintura'];
+  final List<String> servicos = [
+    'Corte de cabelo',
+    'Barba',
+    'Limpeza',
+    'Progressiva',
+    'Pintura',
+    'Completo'
+  ];
   String? _servicoSelecionado;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Selecione um Serviço'),
-      ),
-      body: Form(
-        key: _formKey,
+      appBar: CustomAppBar(),
+      body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            DropdownButtonFormField(
-              value: _servicoSelecionado,
-              items: servicos.map((servico) {
-                return DropdownMenuItem(
-                  value: servico,
-                  child: Text(servico),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Escolha seu serviço',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6!
+                    .copyWith(color: Colors.black, fontSize: 35),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: servicos.map((servico) {
+                return SizedBox(
+                  width: 150,
+                  height: 150,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: _servicoSelecionado == servico
+                          ? Colors.grey
+                          : Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _servicoSelecionado = servico;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(_getIconForService(servico),
+                            size: 30, color: Colors.white),
+                        Text(servico, style: TextStyle(color: Colors.white)),
+                      ],
+                    ),
+                  ),
                 );
               }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  _servicoSelecionado = value as String?;
-                });
-              },
-              validator: (value) {
-                if (value == null) {
-                  return 'Por favor, selecione um serviço';
-                }
-                return null;
-              },
             ),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProfissionalPage(servico: _servicoSelecionado),
-                    ),
-                  );
-                }
-              },
-              child: Text('Enviar'),
-            ),
+            if (_servicoSelecionado != null)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    onPrimary: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProfissionalPage(servico: _servicoSelecionado),
+                      ),
+                    );
+                  },
+                  child: Text('Avançar'),
+                ),
+              ),
           ],
         ),
       ),
     );
+  }
+
+  IconData _getIconForService(String servico) {
+    switch (servico) {
+      case 'Corte de cabelo':
+        return Icons.content_cut;
+      case 'Barba':
+        return Icons.face;
+      case 'Limpeza':
+        return Icons.cleaning_services;
+      case 'Progressiva':
+        return Icons.style;
+      case 'Pintura':
+        return Icons.color_lens;
+      case 'Completo':
+        return Icons.check_circle_outline;
+      default:
+        return Icons.help_outline;
+    }
   }
 }

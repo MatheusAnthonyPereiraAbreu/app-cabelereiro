@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:appcabelereiro/core/services/firebase_agendamento.dart'; 
+import 'package:appcabelereiro/core/services/firebase_agendamento.dart';
 import 'package:appcabelereiro/core/models/profissional.dart';
 import 'package:appcabelereiro/components/appbar.dart';
 
 class CriacaoProfissionalPage extends StatefulWidget {
   @override
-  _CriacaoProfissionalPageState createState() => _CriacaoProfissionalPageState();
+  _CriacaoProfissionalPageState createState() =>
+      _CriacaoProfissionalPageState();
 }
 
 class _CriacaoProfissionalPageState extends State<CriacaoProfissionalPage> {
   final _formKey = GlobalKey<FormState>();
   final FirebaseService _firebaseService = FirebaseService();
-  final List<String> servicos = ['Corte de cabelo', 'Barba', 'Limpeza', 'Progressiva', 'Pintura', 'Completo'];
+  final List<String> servicos = [
+    'Corte de cabelo',
+    'Barba',
+    'Limpeza',
+    'Progressiva',
+    'Pintura',
+    'Completo'
+  ];
   String _nome = '';
   String _funcao = '';
 
@@ -79,7 +87,8 @@ class _CriacaoProfissionalPageState extends State<CriacaoProfissionalPage> {
       _formKey.currentState!.save();
       Profissional profissional = Profissional(nome: _nome, funcao: _funcao);
       _firebaseService.criarProfissional(profissional);
-       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Profissional criado com sucesso!')));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Profissional criado com sucesso!')));
     }
   }
 }

@@ -92,7 +92,7 @@
 70            android:directBootAware="true"
 70-->[com.google.firebase:firebase-common:20.4.2] /home/victor/.gradle/caches/transforms-3/e94c3599b6cee73b37a8094102413514/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:32:13-43
 71            android:exported="false" >
-71-->[com.google.firebase:firebase-appcheck-debug:17.1.1] /home/victor/.gradle/caches/transforms-3/b7b517f998049cc433e8354cf87d879c/transformed/jetified-firebase-appcheck-debug-17.1.1/AndroidManifest.xml:24:13-37
+71-->[com.google.firebase:firebase-appcheck-safetynet:16.1.2] /home/victor/.gradle/caches/transforms-3/11f8114e9d2747709cfda10b93853c76/transformed/jetified-firebase-appcheck-safetynet-16.1.2/AndroidManifest.xml:26:13-37
 72            <meta-data
 72-->[:firebase_app_check] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_app_check/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 73                android:name="com.google.firebase.components:io.flutter.plugins.firebase.appcheck.FlutterFirebaseAppRegistrar"
@@ -124,17 +124,17 @@
 86                android:value="com.google.firebase.components.ComponentRegistrar" />
 86-->[:firebase_core] /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 87            <meta-data
-87-->[com.google.firebase:firebase-appcheck-debug:17.1.1] /home/victor/.gradle/caches/transforms-3/b7b517f998049cc433e8354cf87d879c/transformed/jetified-firebase-appcheck-debug-17.1.1/AndroidManifest.xml:25:13-27:85
-88                android:name="com.google.firebase.components:com.google.firebase.appcheck.debug.FirebaseAppCheckDebugRegistrar"
-88-->[com.google.firebase:firebase-appcheck-debug:17.1.1] /home/victor/.gradle/caches/transforms-3/b7b517f998049cc433e8354cf87d879c/transformed/jetified-firebase-appcheck-debug-17.1.1/AndroidManifest.xml:26:17-128
+87-->[com.google.firebase:firebase-appcheck-safetynet:16.1.2] /home/victor/.gradle/caches/transforms-3/11f8114e9d2747709cfda10b93853c76/transformed/jetified-firebase-appcheck-safetynet-16.1.2/AndroidManifest.xml:27:13-29:85
+88                android:name="com.google.firebase.components:com.google.firebase.appcheck.safetynet.FirebaseAppCheckSafetyNetRegistrar"
+88-->[com.google.firebase:firebase-appcheck-safetynet:16.1.2] /home/victor/.gradle/caches/transforms-3/11f8114e9d2747709cfda10b93853c76/transformed/jetified-firebase-appcheck-safetynet-16.1.2/AndroidManifest.xml:28:17-136
 89                android:value="com.google.firebase.components.ComponentRegistrar" />
-89-->[com.google.firebase:firebase-appcheck-debug:17.1.1] /home/victor/.gradle/caches/transforms-3/b7b517f998049cc433e8354cf87d879c/transformed/jetified-firebase-appcheck-debug-17.1.1/AndroidManifest.xml:27:17-82
+89-->[com.google.firebase:firebase-appcheck-safetynet:16.1.2] /home/victor/.gradle/caches/transforms-3/11f8114e9d2747709cfda10b93853c76/transformed/jetified-firebase-appcheck-safetynet-16.1.2/AndroidManifest.xml:29:17-82
 90            <meta-data
-90-->[com.google.firebase:firebase-appcheck-safetynet:16.1.2] /home/victor/.gradle/caches/transforms-3/11f8114e9d2747709cfda10b93853c76/transformed/jetified-firebase-appcheck-safetynet-16.1.2/AndroidManifest.xml:27:13-29:85
-91                android:name="com.google.firebase.components:com.google.firebase.appcheck.safetynet.FirebaseAppCheckSafetyNetRegistrar"
-91-->[com.google.firebase:firebase-appcheck-safetynet:16.1.2] /home/victor/.gradle/caches/transforms-3/11f8114e9d2747709cfda10b93853c76/transformed/jetified-firebase-appcheck-safetynet-16.1.2/AndroidManifest.xml:28:17-136
+90-->[com.google.firebase:firebase-appcheck-debug:17.1.1] /home/victor/.gradle/caches/transforms-3/b7b517f998049cc433e8354cf87d879c/transformed/jetified-firebase-appcheck-debug-17.1.1/AndroidManifest.xml:25:13-27:85
+91                android:name="com.google.firebase.components:com.google.firebase.appcheck.debug.FirebaseAppCheckDebugRegistrar"
+91-->[com.google.firebase:firebase-appcheck-debug:17.1.1] /home/victor/.gradle/caches/transforms-3/b7b517f998049cc433e8354cf87d879c/transformed/jetified-firebase-appcheck-debug-17.1.1/AndroidManifest.xml:26:17-128
 92                android:value="com.google.firebase.components.ComponentRegistrar" />
-92-->[com.google.firebase:firebase-appcheck-safetynet:16.1.2] /home/victor/.gradle/caches/transforms-3/11f8114e9d2747709cfda10b93853c76/transformed/jetified-firebase-appcheck-safetynet-16.1.2/AndroidManifest.xml:29:17-82
+92-->[com.google.firebase:firebase-appcheck-debug:17.1.1] /home/victor/.gradle/caches/transforms-3/b7b517f998049cc433e8354cf87d879c/transformed/jetified-firebase-appcheck-debug-17.1.1/AndroidManifest.xml:27:17-82
 93            <meta-data
 93-->[com.google.firebase:firebase-appcheck-playintegrity:17.1.1] /home/victor/.gradle/caches/transforms-3/20c32ab875690c4a47bc9f6d46596b8e/transformed/jetified-firebase-appcheck-playintegrity-17.1.1/AndroidManifest.xml:25:13-27:85
 94                android:name="com.google.firebase.components:com.google.firebase.appcheck.playintegrity.FirebaseAppCheckPlayIntegrityRegistrar"
@@ -172,23 +172,23 @@
 110                android:value="com.google.firebase.components.ComponentRegistrar" />
 110-->[com.google.firebase:firebase-firestore:24.9.1] /home/victor/.gradle/caches/transforms-3/57eeceafc4f0b4ba669fd05b1e56484d/transformed/jetified-firebase-firestore-24.9.1/AndroidManifest.xml:22:17-82
 111            <meta-data
-111-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:25:13-27:85
-112                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
-112-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:26:17-120
+111-->[com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/28130a2fd2ed4c4f0ded70547e12c51b/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:37:13-39:85
+112                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+112-->[com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/28130a2fd2ed4c4f0ded70547e12c51b/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:38:17-139
 113                android:value="com.google.firebase.components.ComponentRegistrar" />
-113-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:27:17-82
+113-->[com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/28130a2fd2ed4c4f0ded70547e12c51b/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:39:17-82
 114            <meta-data
-114-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:28:13-30:85
-115                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
-115-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:29:17-117
+114-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:25:13-27:85
+115                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
+115-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:26:17-120
 116                android:value="com.google.firebase.components.ComponentRegistrar" />
-116-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:30:17-82
+116-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:27:17-82
 117            <meta-data
-117-->[com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/28130a2fd2ed4c4f0ded70547e12c51b/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:37:13-39:85
-118                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-118-->[com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/28130a2fd2ed4c4f0ded70547e12c51b/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:38:17-139
+117-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:28:13-30:85
+118                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
+118-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:29:17-117
 119                android:value="com.google.firebase.components.ComponentRegistrar" />
-119-->[com.google.android.gms:play-services-measurement-api:21.5.0] /home/victor/.gradle/caches/transforms-3/28130a2fd2ed4c4f0ded70547e12c51b/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:39:17-82
+119-->[com.google.firebase:firebase-appcheck:17.1.1] /home/victor/.gradle/caches/transforms-3/c85f964ff223e3ab72e8d63f2208bd68/transformed/jetified-firebase-appcheck-17.1.1/AndroidManifest.xml:30:17-82
 120            <meta-data
 120-->[com.google.firebase:firebase-installations:17.2.0] /home/victor/.gradle/caches/transforms-3/8c22dd3c9d9f4b5d3efe9e179d516569/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
 121                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"

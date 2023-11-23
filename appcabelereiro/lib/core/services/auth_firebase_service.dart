@@ -26,42 +26,65 @@ class AuthFirebaseService implements AuthService {
   }
 
   Future<void> signup(
-  String name,
-  String email,
-  String password,
-  File? image,
-) async {
-  final auth = FirebaseAuth.instance;
-  UserCredential credential = await auth.createUserWithEmailAndPassword(
-      email: email, password: password);
+    String name,
+    String email,
+    String password,
+    File? image,
+  ) async {
+    final auth = FirebaseAuth.instance;
+    UserCredential credential = await auth.createUserWithEmailAndPassword(
+        email: email, password: password);
 
-  if (credential.user == null) return;
+    if (credential.user == null) return;
 
-  final imageName = '${credential.user!.uid}.jpg';
-  final imageURL = await _uploadUserImage(image, imageName);
+    final imageName = '${credential.user!.uid}.jpg';
+    final imageURL = await _uploadUserImage(image, imageName);
 
-  await credential.user?.updateDisplayName(name);
-  await credential.user?.updatePhotoURL(imageURL);
+    await credential.user?.updateDisplayName(name);
+    await credential.user?.updatePhotoURL(imageURL);
 
-  await _saveToDoUser(_toAppUser(credential.user!, name, imageURL));
-}
+    await _saveToDoUser(_toAppUser(credential.user!, name, imageURL));
+  }
 
-static AppUser _toAppUser(User user, [String? name, String? imageURL]) {
-  return AppUser(
-    id: user.uid,
-    name: name ?? user.displayName ?? user.email!.split('@')[0],
-    email: user.email!,
-    imageURL: imageURL ?? user.photoURL ?? 'chat/assets/images/avatar.png',
-  );
-}
+  static AppUser _toAppUser(User user, [String? name, String? imageURL]) {
+    return AppUser(
+      id: user.uid,
+      name: name ?? user.displayName ?? user.email!.split('@')[0],
+      email: user.email!,
+      imageURL: imageURL ?? user.photoURL ?? 'chat/assets/images/avatar.png',
+    );
+  }
 
 
   Future<void> login(
     String email,
     String password,
   ) async {
-    await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password);
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      if (credential.user != null) {
+        final store = FirebaseFirestore.instance;
+        final docRef = store.collection('users').doc(credential.user!.uid);
+
+        final userData = await docRef.get();
+        final appUser = AppUser(
+          id: credential.user!.uid,
+          name: userData['name'],
+          email: userData['email'],
+          imageURL: userData['imageURL'], // Define a imagem do usuário
+        );
+
+        // Define a imagem do usuário no objeto AppUser
+        _currentUser = appUser;
+      }
+    } catch (error) {
+      // Trate os erros de login
+      print("Erro ao fazer login: $error");
+    }
   }
 
   Future<void> logout() async {
@@ -89,16 +112,30 @@ static AppUser _toAppUser(User user, [String? name, String? imageURL]) {
   }
 
   Future<void> alterarSenha(String novaSenha) async {
-  User? usuario = FirebaseAuth.instance.currentUser;
+    User? usuario = FirebaseAuth.instance.currentUser;
 
-  if (usuario != null) {
-    await usuario.updatePassword(novaSenha).then((_) {
-      print("Senha alterada com sucesso");
-    }).catchError((error) {
-      print("Falha ao alterar a senha: $error");
-    });
+    if (usuario != null) {
+      await usuario.updatePassword(novaSenha).then((_) {
+        print("Senha alterada com sucesso");
+      }).catchError((error) {
+        print("Falha ao alterar a senha: $error");
+      });
+    }
   }
-}
 
-  
+  Future<bool> loginAsAdmin(String email, String password) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Retorna true se o login for bem-sucedido
+      return true;
+    } catch (error) {
+      // Trate os erros de login
+      print("Erro ao fazer login como administrador: $error");
+      return false;
+    }
+  }
 }

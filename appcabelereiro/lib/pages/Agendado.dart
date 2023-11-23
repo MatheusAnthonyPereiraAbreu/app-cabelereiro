@@ -5,9 +5,9 @@ import 'package:appcabelereiro/components/appbar.dart';
 class Agendado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Agendamento criado com sucesso!')));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Agendamento criado com sucesso!')));
     });
     return Scaffold(
       appBar: CustomAppBar(),

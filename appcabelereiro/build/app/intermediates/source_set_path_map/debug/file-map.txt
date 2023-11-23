@@ -33,8 +33,9 @@ com.example.appcabelereiro.app-mergeDebugResources-31 /home/victor/Documentos/As
 com.example.appcabelereiro.app-mergeDebugResources-32 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
 com.example.appcabelereiro.app-merged_res-33 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/app/intermediates/merged_res/debug
 com.example.appcabelereiro.app-packaged_res-34 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/cloud_firestore/intermediates/packaged_res/debug
-com.example.appcabelereiro.app-packaged_res-35 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_auth/intermediates/packaged_res/debug
-com.example.appcabelereiro.app-packaged_res-36 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/packaged_res/debug
-com.example.appcabelereiro.app-packaged_res-37 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_storage/intermediates/packaged_res/debug
-com.example.appcabelereiro.app-packaged_res-38 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/flutter_plugin_android_lifecycle/intermediates/packaged_res/debug
-com.example.appcabelereiro.app-packaged_res-39 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/image_picker_android/intermediates/packaged_res/debug
+com.example.appcabelereiro.app-packaged_res-35 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_app_check/intermediates/packaged_res/debug
+com.example.appcabelereiro.app-packaged_res-36 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_auth/intermediates/packaged_res/debug
+com.example.appcabelereiro.app-packaged_res-37 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_core/intermediates/packaged_res/debug
+com.example.appcabelereiro.app-packaged_res-38 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/firebase_storage/intermediates/packaged_res/debug
+com.example.appcabelereiro.app-packaged_res-39 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/flutter_plugin_android_lifecycle/intermediates/packaged_res/debug
+com.example.appcabelereiro.app-packaged_res-40 /home/victor/Documentos/Asimov/Flutter/app-cabelereiro/appcabelereiro/build/image_picker_android/intermediates/packaged_res/debug

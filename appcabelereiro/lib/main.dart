@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:appcabelereiro/pages/auth_or_home_page.dart';
 
-
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -13,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Agendamento de Serviços',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.blue,
       ),
       home: AuthOrAppPage(),
     );

@@ -1,3 +1,4 @@
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:appcabelereiro/core/models/app_user.dart';
@@ -5,7 +6,6 @@ import 'package:appcabelereiro/core/services/auth_service.dart';
 import 'package:appcabelereiro/pages/HomePage.dart';
 import 'package:appcabelereiro/pages/auth_page.dart';
 import 'package:appcabelereiro/pages/loading_page.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
 
 class AuthOrAppPage extends StatelessWidget {
   const AuthOrAppPage({Key? key});
@@ -25,7 +25,8 @@ class AuthOrAppPage extends StatelessWidget {
         } else {
           return MaterialApp(
             theme: ThemeData(
-              primarySwatch: Colors.deepPurple,
+              primarySwatch: Colors
+                  .deepPurple, // Cor primária utilizada para AppBar, FloatingActionButton, etc.
               buttonTheme: ButtonThemeData(
                 buttonColor: Colors.black, // Cor dos botões
                 textTheme:

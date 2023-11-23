@@ -70,7 +70,6 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             ListTile(
-              
               title: Text('Agendar Horário'),
               onTap: () {
                 Navigator.pop(context);

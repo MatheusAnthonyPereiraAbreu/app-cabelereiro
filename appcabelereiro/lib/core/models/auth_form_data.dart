@@ -1,3 +1,4 @@
+//auth_form_data.dart
 import 'dart:io';
 
 enum AuthMode { Signup, Login }

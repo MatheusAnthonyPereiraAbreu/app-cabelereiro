@@ -6,8 +6,16 @@ class ServicoPage extends StatefulWidget {
   @override
   _ServicoPageState createState() => _ServicoPageState();
 }
+
 class _ServicoPageState extends State<ServicoPage> {
-  final List<String> servicos = ['Corte de cabelo', 'Barba', 'Limpeza', 'Progressiva', 'Pintura', 'Completo'];
+  final List<String> servicos = [
+    'Corte de cabelo',
+    'Barba',
+    'Limpeza',
+    'Progressiva',
+    'Pintura',
+    'Completo'
+  ];
   String? _servicoSelecionado;
 
   @override
@@ -21,7 +29,10 @@ class _ServicoPageState extends State<ServicoPage> {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 'Escolha seu serviço',
-                style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.black,fontSize: 35),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6!
+                    .copyWith(color: Colors.black, fontSize: 35),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -34,7 +45,9 @@ class _ServicoPageState extends State<ServicoPage> {
                   height: 150,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: _servicoSelecionado == servico ? Colors.grey : Colors.black,
+                      primary: _servicoSelecionado == servico
+                          ? Colors.grey
+                          : Colors.black,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -47,7 +60,8 @@ class _ServicoPageState extends State<ServicoPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(_getIconForService(servico), size: 30, color: Colors.white),
+                        Icon(_getIconForService(servico),
+                            size: 30, color: Colors.white),
                         Text(servico, style: TextStyle(color: Colors.white)),
                       ],
                     ),
@@ -67,7 +81,8 @@ class _ServicoPageState extends State<ServicoPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProfissionalPage(servico: _servicoSelecionado),
+                        builder: (context) =>
+                            ProfissionalPage(servico: _servicoSelecionado),
                       ),
                     );
                   },
@@ -99,4 +114,3 @@ class _ServicoPageState extends State<ServicoPage> {
     }
   }
 }
-

@@ -1,3 +1,4 @@
+//app_user.dart
 class AppUser {
   final String id;
   final String name;

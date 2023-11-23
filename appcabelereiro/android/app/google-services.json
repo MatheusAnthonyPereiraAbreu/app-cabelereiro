@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "614911566185",
+    "firebase_url": "https://app-cabelereiro-default-rtdb.firebaseio.com",
+    "project_id": "app-cabelereiro",
+    "storage_bucket": "app-cabelereiro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614911566185:android:628d3154694babe3b99df8",
+        "android_client_info": {
+          "package_name": "br.com.zanoli.cabeleireiro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614911566185-3rnimsam0sgiomc9qtjka02ta3ar79pg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXBEMO0Wm-Ycs92sqbWqdoUEx3z5ZKukw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614911566185-3rnimsam0sgiomc9qtjka02ta3ar79pg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "614911566185-dt2os4gpm13g4ourkdo2nn8198tbg9s3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appcabelereiro.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614911566185:android:09fa097027902540b99df8",
+        "android_client_info": {
+          "package_name": "com.example.appcabelereiro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614911566185-3rnimsam0sgiomc9qtjka02ta3ar79pg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXBEMO0Wm-Ycs92sqbWqdoUEx3z5ZKukw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614911566185-3rnimsam0sgiomc9qtjka02ta3ar79pg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "614911566185-dt2os4gpm13g4ourkdo2nn8198tbg9s3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appcabelereiro.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

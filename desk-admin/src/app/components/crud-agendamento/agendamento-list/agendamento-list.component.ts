@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/shared/services/crud.service';
 import { agendamentos } from 'src/app/shared/agendamento';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-agendamento-list',
@@ -18,7 +19,8 @@ export class AgendamentoListComponent implements OnInit {
 
   constructor(
     public crudApi: CrudService,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public location: Location
   ) { }
 
   async ngOnInit() {
@@ -53,4 +55,9 @@ export class AgendamentoListComponent implements OnInit {
       this.toastr.success(agendamento.info.nomeCliente + ' Deletado com sucesso! ');
     }
   }
+
+  goBack() {
+    this.location.back();
+  }
+
 }

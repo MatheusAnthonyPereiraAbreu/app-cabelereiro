@@ -1,42 +1,58 @@
+<div class = "all">
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/dashboard">
+        <span class="dasboard-text">Dashboard </span>
+      </a>
+      <h1><img [src]="spaIcon" alt="Spa Icon"></h1>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" routerLink="/register-agendamento">
+            <div class="user-image" [style.background-image]="'url(' + (authService.userData.photoURL ? authService.userData.photoURL : 'assets/user-default.png') + ')'"></div>
+            Hello Admin
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Sidebar navigation -->
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+               <h2> Opções </h2>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/register-agendamento" routerLinkActive="active">
+                  Add Agendamento
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/view-agendamento" routerLinkActive="active">
+                  Lista de Agendamento
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Main content -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="inner-adjust">
+            <router-outlet>
 
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-agendamento">
-      <span class="dasboard-text">Dashboard</span>
-    </a>
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" routerLink="/register-agendamento">
-          <div class="user-image" [style.background-image]="'url(' + (authService.userData.photoURL ? authService.userData.photoURL : 'assets/user-default.png') + ')'"></div>
-          
-          Hello Admin
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- Sidebar navigation -->
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-2 d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/register-agendamento" routerLinkActive="active">
-                Add Agendamento
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/view-agendamento" routerLinkActive="active">
-                Lista de Agendamento
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!-- Main content -->
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-          <router-outlet></router-outlet>
-        </div>
-      </main>
+              <h2>Cabelereiro Hozan</h2>
+
+              <p>Combinando tradição e inovação, no Cabeleireiro Hozan, temos o orgulho de proporcionar serviços de beleza personalizados que refletem mais de duas décadas de excelência. A nossa equipe altamente qualificada não apenas segue as últimas tendências, mas também incorpora técnicas tradicionais, resultando em uma abordagem única para realçar a sua beleza interior e exterior.
+
+                No Cabeleireiro Hozan, acreditamos que a beleza vai além do visual superficial. É uma expressão autêntica da sua individualidade. Nossos profissionais não apenas aprimoram a estética capilar, mas também se esforçam para criar uma experiência acolhedora que vai além do comum. Nosso ambiente é um santuário de relaxamento, onde cada cliente é tratado com atenção personalizada, garantindo não apenas um serviço excepcional, mas também uma jornada agradável de cuidados capilares.
+                
+                Além dos serviços de corte e estilo, oferecemos uma variedade de tratamentos capilares especializados, desde hidratação profunda até técnicas inovadoras de coloração. Estamos comprometidos em utilizar produtos de alta qualidade, cuidadosamente selecionados para nutrir e aprimorar a saúde dos seus cabelos.</p>
+              <div class="img-container">
+                <img class = "img-cont" [src]="imagePath" alt="foto1">
+                <img class = "img-cont" [src]="imagePath2" alt="foto2">
+                <img class = "img-cont" [src]="imagePath3" alt="foto3">
+              </div>
+            </router-outlet>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
+</div>

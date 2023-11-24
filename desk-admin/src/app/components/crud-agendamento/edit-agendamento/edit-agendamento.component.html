@@ -1,92 +1,88 @@
-<div
-  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
->
-  <h1 class="h2">Edit Agendamento Details</h1>
-  <div class="btn-toolbar mb-2 mb-md-0">
-    <div class="btn-group">
-      <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">
-        Voltar
-      </button>
+<body>
+  
+  <div
+    class="navbar-nav"
+  >
+    <h1 class="h2">Editar Agendamento</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-lg-12">
-    <div class="pricing-header form-block mx-auto">
-      <form [formGroup]="editForm" (ngSubmit)="updateForm()" novalidate>
-        <div class="row">
-          <div class="col-lg-5 col-md-12 col-sm-12">
-            <div class="row">
-              <div class="col-md-12 mb-3">
-                <label>Nome do Cliente</label>
-                <input
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="pricing-header form-block mx-auto">
+        <form [formGroup]="editForm" (ngSubmit)="updateForm()" novalidate>
+          <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label>Nome do Cliente</label>
+                  <input
                   type="text"
                   formControlName="nomeCliente"
                   class="form-control"
                   required
-                />
-                <p
+                  />
+                  <p
                   *ngIf="nomeCliente.touched && nomeCliente.invalid"
                   class="error"
-                >
+                  >
                   <sup>*</sup>Por favor coloque o nome do cliente.
                 </p>
                 <p *ngIf="nomeCliente.errors?.['minlength']" class="error">
                   <sup>*</sup>O nome não pode ter menos de 2 letras!
-                </p>
-              </div>
-              <div class="col-md-12 mb-3">
-                <label>Data</label>
-                <input
+                  </p>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label>Data</label>
+                  <input
                   type="date"
                   formControlName="data"
                   class="form-control"
                   name="dataAtual"
                   id="dataAtual"
-                />
-              </div>
-            </div>
-            <div class="col-md-12 mb-3">
-              <label>Horario</label>
-              <input
-                type="text"
-                formControlName="horario"
-                class="form-control"
-                required
-              />
-            </div>
-            <div class="row">
-              <div class="col-md-12 mb-3">
-                <label>Serviço</label>
-                <input
+                  />
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label>Horario</label>
+                  <input
+                  type="text"
+                  formControlName="horario"
+                  class="form-control"
+                  required
+                  />
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label>Serviço</label>
+                  <input
                   type="text"
                   formControlName="servico"
                   class="form-control"
                   required
-                />
-              </div>
-              <div class="col-md-12 mb-3">
-                <label>Profissional</label>
-                <input
+                  />
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label>Profissional</label>
+                  <input
                   type="text"
                   formControlName="cabelereiro"
                   class="form-control"
                   required
-                />
-              </div>
+                  />
+                </div>
             </div>
             <div class="form-group text-right">
               <button
-                type="submit"
-                class="btn btn-success btn-block"
-                [disabled]="!editForm.valid"
+              type="submit"
+              class="btn btn-success btn-block"
+              [disabled]="!editForm.valid"
               >
-                Atualizar o Agendamento
-              </button>
-            </div>
+              Atualizar o Agendamento
+            </button>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </div>
+</div>
+</body>

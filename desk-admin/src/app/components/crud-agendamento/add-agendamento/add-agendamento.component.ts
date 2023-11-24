@@ -3,6 +3,7 @@ import { CrudService } from 'src/app/shared/services/crud.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { agendamentos } from 'src/app/shared/agendamento';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-agendamento',
@@ -15,7 +16,8 @@ export class AddAgendamentoComponent implements OnInit {
   constructor(
     public crudApi: CrudService,
     public fb: FormBuilder,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    private location: Location,
   ) {}
 
   ngOnInit() {
@@ -60,6 +62,10 @@ export class AddAgendamentoComponent implements OnInit {
 
   ResetForm() {
     this.agendamentoForm.reset();
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   submitAgendamentoData() {

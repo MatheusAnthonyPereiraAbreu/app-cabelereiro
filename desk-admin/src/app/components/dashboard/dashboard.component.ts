@@ -11,5 +11,10 @@ import { AuthService } from 'src/app/shared/services/auth.services';
     constructor(
       public authService: AuthService,
       ) {}
+    imagePath: string = 'assets/foto1.png';
+    imagePath2:string = 'assets/foto2.png';
+    imagePath3:string = 'assets/foto3.png';
+    spaIcon:string = 'assets/spa-icon.svg';
+
   ngOnInit(): void {}
 }

@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { AuthService } from '../services/auth.services';
-import { AdmUser } from '../services/user.services';
+import { UserServices } from '../services/user.services';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdmGuard {
-  // AdmUser: any;
   constructor(
-    private authService: AuthService,
-    private AdmUser: AdmUser,
-    private router: Router,
+    public authService: AuthService,
+    // public userService: UserServices,
+    public router: Router,
+    private afs: AngularFirestore,
   ) { }
 
   canActivate(
@@ -23,18 +25,20 @@ export class AdmGuard {
     this.authService.isAdmin();
 
     let userDB: any;
-    let user = JSON.parse(localStorage.getItem("user")!);
+    let user: any;
 
-    return this.AdmUser.getUser(user.uid).pipe(
-      map(user => {
-        userDB = user.data();
+    user = JSON.parse(localStorage.getItem("user") || '{}');
 
-        if (this.authService.isLoggedIn === false || userDB.admUser === false) {
-          window.alert(`Você é um cliente ${user.id}, não é possível acessar esta página.`);
-          this.router.navigate(['sign-in']);
-          return false;
-        }
-        return true;
-      }));
+    return this.afs.doc(`users/${JSON.parse(localStorage.getItem("user") || '{}').uid}`)
+      .get().pipe(
+        map(user => {
+          userDB = user.data();
+          if (this.authService.isLoggedIn === false || userDB.admUser === (false) || userDB.admUser === null) {
+            this.router.navigate(['sign-in']);
+            window.alert(`Você é um cliente, não é possível acessar esta página.`);
+            return false;
+          }
+          return true;
+        }));
   }
 }

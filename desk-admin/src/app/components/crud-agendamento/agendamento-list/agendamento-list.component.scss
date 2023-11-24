@@ -1,6 +1,41 @@
 body {
     font-size: .875rem;
     font-family: 'Poppins', sans-serif;
+    background-color: #1d1d1d;
+    h1{
+        color: #ffffff;
+        padding:30px;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+router-outlet{
+    margin:10px;
+    color: #ffffff;
+}
+
+router-outlet p{
+    text-align: justify ;
+}
+.all{
+    background-color: #1d1d1d;
+}
+
+.row{
+    color: #ffffff;
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: #1d1d1d;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.titulo .h2{
+    background-color: #444444;
 }
 
 .feather {
@@ -11,6 +46,11 @@ body {
 
 /* * Sidebar */
 .sidebar {
+    background-color: #1d1d1d;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
     top: 0;
     bottom: 0;
     left: 0;
@@ -22,12 +62,27 @@ body {
 }
 
 .sidebar-sticky {
+    background-color: #444444;
+    width: 100%;
     position: relative;
     top: 0;
     height: calc(100vh - 48px);
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.sidebar-sticky h2{
+    width: 90%;
+    border-radius: 5px;
+    border-color: #30106B;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 10px;
+    padding: 10px;
+    background: #30106B;
+    color: #ffffff;
+    outline: none;
 }
 
 @supports ((position:-webkit-sticky) or (position:sticky)) {
@@ -37,9 +92,27 @@ body {
     }
 }
 
+.nav-bar-nav.nav-item{
+    border-left: 1px solid #ffffff;
+    color: #ffffff;
+}
+
 .sidebar .nav-link {
-    font-weight: 500;
-    color: #333;
+    width: 90%;
+    border-radius: 5px;
+    border-color: #30106B;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 10px;
+    padding: 10px;
+    background: #30106B;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+
+.sidebar .nav-link:hover{
+    opacity: 0.7;
 }
 
 .sidebar .nav-link .feather {
@@ -48,7 +121,7 @@ body {
 }
 
 .sidebar .nav-link.active {
-    color: #007bff;
+    color: #444444;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -67,14 +140,23 @@ body {
 }
 
 .dasboard-text {
-    border-left: 1px solid rgb(255, 255, 255, .3);
-    color: rgb(255, 255, 255, .5);
+    border-left: 2px solid ;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
     display: inline-block;
-    padding: 0 0 0 14px;
+    padding: 0 0 0 10px;
     font-size: 15px;
     margin-left: 15px;
     position: relative;
     top: -1px;
+}
+
+h1 img{
+    display: inline-block;
+    width: 50px;
+    justify-content: left;
+    justify-items: left;
 }
 
 /* * Navbar */
@@ -110,7 +192,7 @@ body {
 }
 
 .bg-dark {
-    background-color: #1633FF !important;
+    background-color: #444444 !important;
 }
 
 .gap-right {
@@ -138,7 +220,22 @@ i {
 .action-block .fa-trash-alt:hover {
     color: #E91E63;
 }
+.btn-success{
+    background-color: #30106B;
+}
 
+.back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #30106B; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border-radius: 5px; /* Borda arredondada */
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+  }
 .btn-primary.focus,
 .btn-primary:focus {
     box-shadow: none;
@@ -279,9 +376,15 @@ label {
 }
 
 body .table thead th {
-    background: #f3f5ff;
+    background: #444444;
 }
-
+body .table {
+    width: 98%;
+    margin-right:18px;
+    margin-left: 18px;
+    justify-content: center;
+    justify-items: center;
+}
 .pricing-header {
     padding-bottom: 50px;
 }
@@ -294,6 +397,13 @@ footer {
     border-top: 1px solid #dee2e6 !important;
     padding-top: 25px;
     margin-top: 50px;
+}
+
+.container-fluid{
+    // margin-top:10px;
+    background-color: #1d1d1d;
+    // border: #444444 solid 10px;
+    // border-radius:20%;
 }
 
 /* Responsive */
@@ -382,4 +492,44 @@ footer {
     footer br {
         display: none;
     }
+}
+
+.img-container {
+    img.img-cont {
+        width: 20%;
+        height: 20%;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        margin-left:10px;
+        margin-right:10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back{
+    margin-top: 10px;
+    margin-left: 18px;
+
+}
+
+.pageControl{
+    margin-right: 20px;
+}
+
+.edit-buttom{
+    border-color: #30106B;
+    margin-right: 5px;
+    color:#30106B;
+}
+
+.edit-buttom:hover{
+    color:#ffffff;
+    background-color: #30106B;
+    border-color: #30106B;
 }

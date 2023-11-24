@@ -4,14 +4,12 @@ export interface UserServices {
     email:string;
     displayName: string;
     photoURL: string;
+    admUser:boolean;
     emailVerified: boolean;
 }
 export class AdmUser{
     constructor(
-        private firestore: AngularFirestore,
     ){ }
-    getUser(uid: string) {
-        return this.firestore.doc(`users/${uid}`).get();
-      }
+
 }
 

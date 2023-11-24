@@ -3,38 +3,39 @@ import { Router } from '@angular/router';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { getFirestore, updateDoc, doc as docs, query, collection, where, getDocs} from 'firebase/firestore';
+import { getFirestore, updateDoc, doc as docs, query, collection, where, getDocs } from 'firebase/firestore';
 import { UserServices } from './user.services';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  doc(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   userData: any; // Save logged in user data
   constructor(
-    public afs: AngularFirestore, // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afs: AngularFirestore,
+    public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone
   ) {
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
-    this.afAuth.authState.subscribe((user) => {
+    this.afAuth.authState.subscribe(async (user) => {
       if (user) {
         this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user')!);
-      } else {
-        localStorage.setItem('user', 'null');
-        JSON.parse(localStorage.getItem('user')!);
+        await this.getUserData(this.userData.uid).then((users) => {
+          users.forEach((user) => {
+            localStorage.setItem('user', JSON.stringify(user.data()));
+          })
+        })
       }
     });
   }
-  // Sign in with email/password
+
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SetUserData(result.user);
+        localStorage.setItem('user', JSON.stringify(result.user));
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['dashboard']);
@@ -50,8 +51,7 @@ export class AuthService {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
+
         this.SendVerificationMail();
         this.SetUserData(result.user);
       })
@@ -59,7 +59,7 @@ export class AuthService {
         window.alert(error.message);
       });
   }
-  // Send email verfificaiton when new user sign up
+
   SendVerificationMail() {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
@@ -81,9 +81,9 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false ? true : false;
+    return user !== null && user.emailVerified !== false;
   }
-  // Sign in with Google
+
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       this.router.navigate(['dashboard']);
@@ -101,9 +101,7 @@ export class AuthService {
         window.alert(error);
       });
   }
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
@@ -114,12 +112,14 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      admUser: false,
     };
+
     return userRef.set(userData, {
       merge: true,
     });
   }
-  // Sign out
+
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
@@ -131,14 +131,20 @@ export class AuthService {
     let admin: boolean = false;
     let user = JSON.parse(localStorage.getItem('user')!);
 
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    getDocs(q).then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        admin = doc.data()['admUser'];
-      });
+    if (user && user.uid) {
+      const q = query(collection(db, "users"), where("uid", "==", user.uid));
+      getDocs(q).then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          admin = doc.data()['admUser'];
+        });
+        user.admUser = admin;
+        localStorage.setItem("user", JSON.stringify(user));
+      })
+    };
+  }
+  async getUserData(uid: string) {
+    const docRef = this.afs.collection('users').ref;
 
-      user.admUser = admin;
-      localStorage.setItem("user", JSON.stringify(user));
-    });
+    return await docRef.where('uid', '==', uid).get();
   }
 }

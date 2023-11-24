@@ -1,82 +1,82 @@
-<div class="pt-3 pb-2 mb-3 border-bottom">
-  <h2 class="h2">Add Agendamento</h2>
-</div>
-<form [formGroup]="agendamentoForm" (ngSubmit)="submitAgendamentoData()" novalidate>
-  <div class="row">
-    <div class="col-lg-5 col-md-12 col-sm-12">
-      <div class="row">
-        <div class="col-md-12 mb-3">
-          <label>Nome do cliente</label>
-          <input
-            type="text"
-            formControlName="nomeCliente"
-            class="form-control"
-            required
-          />
-          <!-- errors-->
-          <!-- <p *ngIf="nomeCliente.touched && nomeCliente.invalid" class="error">
-            <sup>*</sup>Por favor insira pelo menos o primeiro nome.
-          </p> -->
-          <p *ngIf="nomeCliente.errors?.['minlength']" class="error">
-            <sup>*</sup>Seu nome não pode ter menos de 2 letras.
-          </p>
+<body>
+  
+  <div class="navbar-nav">
+    <h1 class="h2">Add Agendamento</h1>
+  </div>
+  <form [formGroup]="agendamentoForm" (ngSubmit)="submitAgendamentoData()" novalidate >
+    <div class="row">
+      <div class="col-lg-5 col-md-12 col-sm-12">
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label>Nome do cliente</label>
+            <input
+              type="text"
+              formControlName="nomeCliente"
+              class="form-control"
+              required
+            />
+            <p *ngIf="nomeCliente.errors?.['minlength']" class="error">
+              <sup>*</sup>Seu nome não pode ter menos de 2 letras.
+            </p>
+          </div>
+          <div class="col-md-12 mb-3">
+            <label>Data</label>
+            <input type="date" formControlName="dataAtual" class="form-control" id="dataAtual" name="dataAtual" />
+          </div>
+          <div class="col-md-12 mb-3">
+            <label>Horario</label>
+            <input
+              type="text"
+              formControlName="horario"
+              class="form-control"
+              required
+            />
+          </div>
+        
+            <div class="col-md-12 mb-3">
+              <label>Serviço</label>
+              <input
+              type="text"
+              formControlName="service"
+              class="form-control"
+              required
+              />
+            </div>
+            <div class="col-md-12 mb-3">
+              <label>Profissional</label>
+              <input
+              type="text"
+              formControlName="cabelereiro"
+              class="form-control"
+              required
+              />
+            </div>
+          </div>
+          
+          <div class="form-group text-right">
+          <div class="btn-group">
+            <button class="btn btn-secondary gap-right" (click)="goBack()">
+              Voltar
+            </button>
+          </div>
+          <button
+            type="button"
+            class="btn btn-secondary gap-right"
+            (click)="ResetForm()"
+          >
+            Reset
+          </button>
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!agendamentoForm.valid"
+          >
+            Adicionar Agendamento
+          </button>
         </div>
-        <div class="col-md-12 mb-3">
-          <label>Data</label>
-          <input type="date" formControlName="dataAtual" class="form-control" id="dataAtual" name="dataAtual" />
-        </div>
-        <div class="col-md-12 mb-3">
-          <label>Horario</label>
-          <input
-            type="text"
-            formControlName="horario"
-            class="form-control"
-            required
-          />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 mb-3">
-          <label>Serviço</label>
-          <input
-            type="text"
-            formControlName="service"
-            class="form-control"
-            required
-          />
-        </div>
-        <div class="col-md-12 mb-3">
-          <label>Profissional</label>
-          <input
-            type="text"
-            formControlName="cabelereiro"
-            class="form-control"
-            required
-          />
-        </div>
-      </div>
-      <div class="form-group text-right">
-        <button
-          type="button"
-          class="btn btn-secondary gap-right"
-          (click)="ResetForm()"
-        >
-          Reset
-        </button>
-        <button
-          type="submit"
-          class="btn btn-success"
-          [disabled]="!agendamentoForm.valid"
-        >
-          Adicionar Agendamento
-        </button>
       </div>
     </div>
-  </div>
-</form>
-
-<div class="btn-group">
-  <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">
-    Voltar
-  </button>
-</div>
+  </form>
+  
+  
+</body>
